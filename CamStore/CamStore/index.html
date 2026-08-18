@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CamStore - Camera E-Commerce Homepage</title>
+    
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS File -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ================= 1. NAVBAR SECTION ================= -->
+    <!-- Responsive dark navbar powered by Bootstrap classes -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <!-- Brand Logo / Website Name -->
+            <a class="navbar-brand fw-bold" href="index.html">📷 CamStore</a>
+            
+            <!-- Mobile Toggle Button (Hamburger icon on small screens) -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Navbar Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#categories">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.html">Cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                    <!-- Dropdown for Register -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="registerDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Register
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="registerDropdown">
+                            <li><a class="dropdown-item" href="user-register.html">User</a></li>
+                            <li><a class="dropdown-item" href="admin-register.html">Admin</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ================= 2. HERO CAROUSEL SECTION ================= -->
+    <!-- Placed immediately below navbar, centered horizontally -->
+    <section class="my-4">
+        <div class="container">
+            <!-- Bootstrap Carousel Component -->
+            <div id="heroCarousel" class="carousel slide carousel-custom mx-auto" data-bs-ride="carousel">
+                
+                <!-- Carousel Indicators (Bottom Dots) -->
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                
+                <!-- Carousel Slides -->
+                <div class="carousel-inner rounded shadow-sm">
+                    <!-- Slide 1 -->
+                    <div class="carousel-item active">
+                        <img src="photos/hero1.jpg" class="d-block w-100 carousel-img" alt="Professional Camera Gear">
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+                            <h5>Professional Gear</h5>
+                            <p>Discover high-grade DSLR and Mirrorless cameras.</p>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="carousel-item">
+                        <img src="photos/hero2.jpg" class="d-block w-100 carousel-img" alt="Vintage & Compact Cameras">
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+                            <h5>Compact & Vintage</h5>
+                            <p>Timeless aesthetic combined with modern sensors.</p>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="carousel-item">
+                        <img src="photos/hero3.jpg" class="d-block w-100 carousel-img" alt="Action & Digital Cameras">
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+                            <h5>Action & Digital</h5>
+                            <p>Ready for every adventure and memory.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Previous and Next Control Buttons -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 3. CAMERA CATEGORIES SECTION ================= -->
+    <!-- Section containing 4 camera category cards in one row on desktop -->
+    <section id="categories" class="py-4">
+        <div class="container">
+            <h2 class="text-center mb-4">Camera Categories</h2>
+            
+            <!-- Bootstrap Grid Row -->
+            <div class="row g-4">
+                
+                <!-- Category Card 1: DSLR Cameras -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="card h-100 shadow-sm text-center">
+                        <img src="photos/dslr.jpg" class="card-img-top category-img" alt="DSLR Cameras">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <h5 class="card-title fw-bold">DSLR Cameras</h5>
+                            <a href="products.html" class="btn btn-primary mt-3">View Products</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Category Card 2: Mirrorless Cameras -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="card h-100 shadow-sm text-center">
+                        <img src="photos/mirrorless.jpg" class="card-img-top category-img" alt="Mirrorless Cameras">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <h5 class="card-title fw-bold">Mirrorless Cameras</h5>
+                            <a href="products.html" class="btn btn-primary mt-3">View Products</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Category Card 3: Action Cameras -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="card h-100 shadow-sm text-center">
+                        <img src="photos/action.jpg" class="card-img-top category-img" alt="Action Cameras">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <h5 class="card-title fw-bold">Action Cameras</h5>
+                            <a href="products.html" class="btn btn-primary mt-3">View Products</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Category Card 4: Digital Cameras -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="card h-100 shadow-sm text-center">
+                        <img src="photos/digital.jpg" class="card-img-top category-img" alt="Digital Cameras">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <h5 class="card-title fw-bold">Digital Cameras</h5>
+                            <a href="products.html" class="btn btn-primary mt-3">View Products</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 4. FOOTER SECTION ================= -->
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <div class="container">
+            <p class="mb-1 fw-bold">📷 CamStore</p>
+            <p class="mb-0 text-secondary small">&copy; 2026 CamStore. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle CDN (Required for interactive components like Carousel & Navbar Toggle) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript File -->
+    <script src="script.js"></script>
+</body>
+</html>

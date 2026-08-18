@@ -1,0 +1,106 @@
+# =========================================================================
+# .gitignore for CamStore (ASP.NET / C# / Visual Studio & Web Project)
+# =========================================================================
+
+# -------------------------------------------------------------------------
+# Build & Output Directories (Regenerated automatically when built on another PC)
+# -------------------------------------------------------------------------
+[Bb]in/
+[Oo]bj/
+[LGs]og/
+[LL]ogs/
+[Tt]emp/
+[Tt]mp/
+build/
+dist/
+
+# -------------------------------------------------------------------------
+# NuGet Packages (Restored automatically via packages.config or PackageReference)
+# -------------------------------------------------------------------------
+**/packages/*
+!**/packages/build/
+
+# -------------------------------------------------------------------------
+# Visual Studio & IDE Specific Files / Caches
+# -------------------------------------------------------------------------
+.vs/
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# User-specific developer settings
+*.csproj.user
+*.vbproj.user
+*.vcxproj.user
+*.user
+*.userosv
+*.suo
+*.userlibraries
+*.cache
+*.docstates
+
+# -------------------------------------------------------------------------
+# Security Risks & Sensitive Credentials (NEVER push secrets to GitHub)
+# -------------------------------------------------------------------------
+# Environment & Configuration secrets
+.env
+.env.*
+!.env.example
+!.env.template
+appsettings*.Secret.json
+appsettings.Local.json
+secrets.json
+
+# Web deployment secrets (IIS / Azure credentials)
+*.publishsettings
+*.pubxml.user
+
+# Cryptographic Keys & SSL Certificates
+*.pfx
+*.p12
+*.pem
+*.key
+*.crt
+*.cer
+
+# -------------------------------------------------------------------------
+# Local Databases & Heavy Binary Files (Bloat repository)
+# -------------------------------------------------------------------------
+*.mdf
+*.ldf
+*.sdf
+*.db
+*.sqlite
+*.sqlite3
+
+# -------------------------------------------------------------------------
+# Node.js / Frontend dependencies (If NPM is used)
+# -------------------------------------------------------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# -------------------------------------------------------------------------
+# Operating System Generated Files
+# -------------------------------------------------------------------------
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Linux
+*~

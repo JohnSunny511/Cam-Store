@@ -1,0 +1,38 @@
+/* =========================================================
+   STYLE.CSS - Custom CSS for CamStore Homepage
+   Kept minimal; used only where Bootstrap defaults are insufficient.
+   ========================================================= */
+
+/* 1. Carousel Sizing & Centering */
+.carousel-custom {
+    /* Carousel width is set to approximately 80% of the screen */
+    width: 80%;
+    max-width: 1000px;
+}
+
+/* 2. Carousel Images Height & Fitting */
+.carousel-img {
+    /* Height is set to approximately 20% of the viewport height (20vh) */
+    height: 20vh;
+    min-height: 180px;
+    
+    /* object-fit: cover keeps image ratio intact without distortion */
+    object-fit: cover;
+}
+
+/* 3. Category & Product Card Images Height & Fitting */
+.category-img,
+.product-img {
+    /* Fixed height for card images to keep card heights uniform */
+    height: 180px;
+    object-fit: cover;
+}
+
+/* 4. Navbar Hover Dropdown for Desktop */
+@media (min-width: 992px) {
+    .navbar-nav .nav-item.dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0;
+    }
+}
+

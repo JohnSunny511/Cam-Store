@@ -32,7 +32,9 @@
         <td class="auto-style3">
             <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
         </td>
-        <td>&nbsp;</td>
+        <td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
+        </td>
     </tr>
     <tr>
         <td class="auto-style1">&nbsp;</td>
@@ -40,7 +42,9 @@
         <td class="auto-style3">
             <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
         </td>
-        <td>&nbsp;</td>
+        <td>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="RegularExpressionValidator"></asp:RegularExpressionValidator>
+        </td>
     </tr>
     <tr>
         <td class="auto-style1">&nbsp;</td>
@@ -48,7 +52,9 @@
         <td class="auto-style3">
             <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
         </td>
-        <td>&nbsp;</td>
+        <td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
+        </td>
     </tr>
     <tr>
         <td class="auto-style1">&nbsp;</td>
@@ -56,7 +62,9 @@
         <td class="auto-style3">
             <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
         </td>
-        <td>&nbsp;</td>
+        <td>
+            <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="CompareValidator"></asp:CompareValidator>
+        </td>
     </tr>
     <tr>
         <td class="auto-style1">&nbsp;</td>
@@ -64,20 +72,24 @@
         <td class="auto-style3">
             <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
         </td>
-        <td>&nbsp;</td>
+        <td>
+            <asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="CompareValidator"></asp:CompareValidator>
+        </td>
     </tr>
     <tr>
         <td class="auto-style1">&nbsp;</td>
         <td class="auto-style2">&nbsp;</td>
         <td class="auto-style3">
-            <asp:Button ID="Button1" runat="server" Text="Register" />
+            <asp:Button ID="Button1" runat="server" Text="Register" OnClick="Button1_Click" />
         </td>
         <td>&nbsp;</td>
     </tr>
     <tr>
         <td class="auto-style1">&nbsp;</td>
         <td class="auto-style2">&nbsp;</td>
-        <td class="auto-style3">&nbsp;</td>
+        <td class="auto-style3">
+            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        </td>
         <td>&nbsp;</td>
     </tr>
     <tr>

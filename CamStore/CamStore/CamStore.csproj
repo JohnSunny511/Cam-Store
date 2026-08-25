@@ -67,14 +67,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Add_Category.aspx" />
+    <Content Include="Add_Product.aspx" />
+    <Content Include="admin-home.aspx" />
     <Content Include="admin-reg.aspx" />
     <Content Include="admin-register.html" />
+    <Content Include="admin_edit_category.aspx" />
+    <Content Include="admin_edit_product.aspx" />
     <Content Include="index.html" />
     <Content Include="Login.aspx" />
     <Content Include="photos\action.jpg" />
+    <Content Include="photos\add category.png" />
+    <Content Include="photos\add product.png" />
     <Content Include="photos\digital.jpg" />
     <Content Include="photos\dslr.jpg" />
     <Content Include="photos\dslrrr.jpg" />
+    <Content Include="photos\edit category.png" />
+    <Content Include="photos\edit pro.png" />
     <Content Include="photos\hero1.jpg" />
     <Content Include="photos\hero2.jpg" />
     <Content Include="photos\hero3.jpg" />
@@ -86,6 +95,27 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Add_Category.aspx.cs">
+      <DependentUpon>Add_Category.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Add_Category.aspx.designer.cs">
+      <DependentUpon>Add_Category.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Add_Product.aspx.cs">
+      <DependentUpon>Add_Product.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Add_Product.aspx.designer.cs">
+      <DependentUpon>Add_Product.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin-home.aspx.cs">
+      <DependentUpon>admin-home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin-home.aspx.designer.cs">
+      <DependentUpon>admin-home.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin-reg.aspx.cs">
       <DependentUpon>admin-reg.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -93,6 +123,21 @@
     <Compile Include="admin-reg.aspx.designer.cs">
       <DependentUpon>admin-reg.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin_edit_category.aspx.cs">
+      <DependentUpon>admin_edit_category.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_edit_category.aspx.designer.cs">
+      <DependentUpon>admin_edit_category.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin_edit_product.aspx.cs">
+      <DependentUpon>admin_edit_product.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_edit_product.aspx.designer.cs">
+      <DependentUpon>admin_edit_product.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConClass.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

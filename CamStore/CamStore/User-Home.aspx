@@ -11,9 +11,6 @@
             margin-left: 0px;
             margin-top: 0px;
         }
-        .auto-style5 {
-            margin-bottom: 5px;
-        }
         .auto-style6 {
             height: 100px;
         }
@@ -25,10 +22,37 @@
             width: 629px;
             height: 100px;
         }
+        .auto-style9 {
+            height: 24px;
+        }
+        .auto-style10 {
+            width: 143px;
+            height: 24px;
+        }
+        .auto-style11 {
+            width: 629px;
+            height: 24px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table class="w-100">
+        <tr>
+            <td>&nbsp;</td>
+            <td class="auto-style2">&nbsp;</td>
+            <td class="auto-style3">
+                &nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td class="auto-style2">&nbsp;</td>
+            <td class="auto-style3">
+                &nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
         <tr>
             <td>&nbsp;</td>
             <td class="auto-style2">&nbsp;</td>
@@ -65,18 +89,30 @@
             <td>&nbsp;</td>
             <td class="auto-style2">&nbsp;</td>
             <td class="auto-style3">
-                <asp:DataList ID="DataList1" runat="server" CssClass="auto-style5" RepeatColumns="4" RepeatDirection="Horizontal">
+                <asp:DataList ID="DataList1" runat="server" CellPadding="19" CellSpacing="1" RepeatDirection="Horizontal">
                     <ItemTemplate>
                         <table class="w-100">
                             <tr>
-                                <td>
-                                    <asp:Image ID="Image2" runat="server" Height="196px" ImageUrl="~/photos/action.jpg" Width="197px" />
+                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Size="30px" Text='<%# Eval("category_name") %>'></asp:Label>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <asp:Button ID="Button1" runat="server" Text="Button" />
+                                    <asp:ImageButton ID="ImageButton1" runat="server" Height="250px" ImageUrl='<%# Eval("category_photo") %>' Width="250px" />
                                 </td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
                             </tr>
                         </table>
                     </ItemTemplate>
@@ -93,11 +129,11 @@
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td>&nbsp;</td>
-            <td class="auto-style2">&nbsp;</td>
-            <td class="auto-style3">&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <td class="auto-style9"></td>
+            <td class="auto-style10"></td>
+            <td class="auto-style11"></td>
+            <td class="auto-style9"></td>
+            <td class="auto-style9"></td>
         </tr>
         <tr>
             <td>&nbsp;</td>

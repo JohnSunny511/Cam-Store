@@ -9,23 +9,22 @@ using System.Data;
 
 namespace CamStore
 {
-    public partial class User_Home : System.Web.UI.Page
+    public partial class Products : System.Web.UI.Page
     {
         ConClass ob = new ConClass();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                grid_bind();
+                data_bind();
             }
         }
 
-        public void grid_bind()
+        public void data_bind()
         {
-            string s = "select category_id,category_name,category_photo,category_description from category where category_status = 'active'";
-
+            int cat_id = Convert.ToInt32(Session["uid"]);
+            string s = "select product_id,product_name,product_image,price,product_description from product where category_id = " + cat_id;
             DataSet ds = ob.fn_Adapter_DataSet(s);
-
             DataList1.DataSource = ds;
             DataList1.DataBind();
         }
@@ -33,8 +32,8 @@ namespace CamStore
         protected void ImageButton1_Command(object sender, CommandEventArgs e)
         {
             int id = Convert.ToInt32(e.CommandArgument);
-            Session["uid"] = id;
-            Response.Redirect("Products.aspx");
+            Session["pro"] = id;
+            Response.Redirect("ProductDetails.aspx");
         }
     }
 }

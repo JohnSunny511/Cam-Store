@@ -88,6 +88,8 @@
     <Content Include="photos\hero2.jpg" />
     <Content Include="photos\hero3.jpg" />
     <Content Include="photos\mirrorless.jpg" />
+    <Content Include="ProductDetails.aspx" />
+    <Content Include="Products.aspx" />
     <Content Include="style.css" />
     <Content Include="User-Home.aspx" />
     <Content Include="user-reg.aspx" />
@@ -144,6 +146,20 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductDetails.aspx.cs">
+      <DependentUpon>ProductDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductDetails.aspx.designer.cs">
+      <DependentUpon>ProductDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Products.aspx.cs">
+      <DependentUpon>Products.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Products.aspx.designer.cs">
+      <DependentUpon>Products.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site1.Master.cs">

@@ -99,14 +99,16 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <asp:ImageButton ID="ImageButton1" runat="server" Height="250px" ImageUrl='<%# Eval("category_photo") %>' Width="250px" />
+                                    <asp:ImageButton ID="ImageButton1" runat="server" Height="250px" ImageUrl='<%# Eval("category_photo") %>' Width="250px" CommandArgument='<%# Eval("category_id") %>' OnCommand="ImageButton1_Command" />
                                 </td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
                             </tr>
                             <tr>
-                                <td>&nbsp;</td>
+                                <td>
+                                    <asp:Label ID="Label3" runat="server" Text='<%# Eval("category_description") %>'></asp:Label>
+                                </td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>

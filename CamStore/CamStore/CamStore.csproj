@@ -74,6 +74,7 @@
     <Content Include="admin-register.html" />
     <Content Include="admin_edit_category.aspx" />
     <Content Include="admin_edit_product.aspx" />
+    <Content Include="Cart.aspx" />
     <Content Include="index.html" />
     <Content Include="Login.aspx" />
     <Content Include="photos\action.jpg" />
@@ -138,6 +139,13 @@
     </Compile>
     <Compile Include="admin_edit_product.aspx.designer.cs">
       <DependentUpon>admin_edit_product.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
     </Compile>
     <Compile Include="ConClass.cs" />
     <Compile Include="Login.aspx.cs">

@@ -83,7 +83,7 @@
             <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
         </td>
         <td class="auto-style11">
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="TextBox4" ErrorMessage="RegularExpressionValidator" ValidationExpression="(0( \d|\d ))?\d\d \d\d(\d \d| \d\d )\d\d"></asp:RegularExpressionValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="TextBox4" ErrorMessage="RegularExpressionValidator" ValidationExpression="^[0-9]{10}$"></asp:RegularExpressionValidator>
         </td>
     </tr>
     <tr>
@@ -93,7 +93,7 @@
             <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
         </td>
         <td>
-            <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="TextBox5" ErrorMessage="RangeValidator" MaximumValue="20" MinimumValue="60"></asp:RangeValidator>
+            <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="TextBox5" ErrorMessage="RangeValidator" MaximumValue="60" MinimumValue="20"></asp:RangeValidator>
         </td>
     </tr>
     <tr>

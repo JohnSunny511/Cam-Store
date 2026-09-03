@@ -16,7 +16,7 @@
     <table class="w-100">
     <tr>
         <td class="auto-style1">&nbsp;</td>
-        <td class="auto-style2">&nbsp;</td>
+        <td class="auto-style2">Admin Registration</td>
         <td class="auto-style3">&nbsp;</td>
         <td>&nbsp;</td>
     </tr>
@@ -33,7 +33,7 @@
             <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
         </td>
         <td>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TextBox1"></asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
@@ -43,7 +43,7 @@
             <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
         </td>
         <td>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="RegularExpressionValidator"></asp:RegularExpressionValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="RegularExpressionValidator" ControlToValidate="TextBox2" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
         </td>
     </tr>
     <tr>
@@ -53,7 +53,7 @@
             <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
         </td>
         <td>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TextBox3"></asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
@@ -63,7 +63,7 @@
             <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
         </td>
         <td>
-            <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="CompareValidator"></asp:CompareValidator>
+            <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="CompareValidator" ControlToCompare="TextBox5" ControlToValidate="TextBox4"></asp:CompareValidator>
         </td>
     </tr>
     <tr>
@@ -73,8 +73,7 @@
             <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
         </td>
         <td>
-            <asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="CompareValidator"></asp:CompareValidator>
-        </td>
+            &nbsp;</td>
     </tr>
     <tr>
         <td class="auto-style1">&nbsp;</td>

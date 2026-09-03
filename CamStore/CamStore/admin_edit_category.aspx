@@ -44,6 +44,7 @@
                             <ItemTemplate>
                                 <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("category_photo") %>' />
                             </ItemTemplate>
+                            <ControlStyle Height="100px" Width="100px" />
                         </asp:TemplateField>
                         <asp:BoundField DataField="category_status" HeaderText="Status" />
                     </Columns>

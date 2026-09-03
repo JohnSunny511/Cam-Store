@@ -47,7 +47,7 @@
         <td>&nbsp;</td>
         <td class="auto-style2">&nbsp;</td>
         <td class="auto-style3">
-            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+            <asp:Label ID="Label1" runat="server" Text="Product Description"></asp:Label>
         </td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
@@ -122,16 +122,32 @@
         <td class="auto-style10"></td>
         <td class="auto-style11"></td>
         <td class="auto-style12"></td>
+        <td class="auto-style10">
+            <table class="w-100">
+                <tr>
+                    <td>
+                        <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Add To Cart" />
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <asp:Button ID="Button5" runat="server" OnClick="Button5_Click" Text="Continue" />
+                    </td>
+                </tr>
+            </table>
+        </td>
         <td class="auto-style10"></td>
-        <td class="auto-style10"></td>
-        <td class="auto-style10"></td>
+        <td class="auto-style10">
+            <asp:Button ID="Button4" runat="server" OnClick="Button4_Click" Text="View Cart" />
+        </td>
         <td class="auto-style10"></td>
     </tr>
     <tr>
         <td>&nbsp;</td>
         <td class="auto-style2">&nbsp;</td>
         <td class="auto-style3">&nbsp;</td>
-        <td>&nbsp;</td>
+        <td>
+            <asp:Label ID="Label8" runat="server" Text="Label"></asp:Label>
+        </td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>

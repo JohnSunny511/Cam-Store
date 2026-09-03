@@ -38,7 +38,7 @@ namespace CamStore
                 if (i == 1 && j == 1)
                 {
                     Label1.Text = "Succesfully Registerd";
-                    Response.Redirect("admin_home.aspx");
+                    Response.Redirect("Login.aspx");
 
                 }
             }

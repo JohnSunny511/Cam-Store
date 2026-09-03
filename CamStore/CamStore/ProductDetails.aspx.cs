@@ -24,7 +24,7 @@ namespace CamStore
 
         public void bind()
         {
-            int id = Convert.ToInt32(Session["pro"]);
+            int id = Convert.ToInt32(Session["pro_id"]);
             string s = "select * from product where product_id =" +id;
             DataSet ds = ob.fn_Adapter_DataSet(s);
             if (ds.Tables[0].Rows.Count > 0)
@@ -54,6 +54,31 @@ namespace CamStore
                 i = Convert.ToInt32(TextBox1.Text) - 1;
                 TextBox1.Text = i.ToString();
             }
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            int pro_id = Convert.ToInt32(Session["pro_id"]);
+            int reg_id = Convert.ToInt32(Session["regid"]);
+            int quantity = Convert.ToInt32(TextBox1.Text);
+            decimal price = Convert.ToInt32(Label6.Text);
+            decimal subtotal = price * quantity;
+            string s = "insert into cart (product_id,quantity,subtotal,cart_status,user_id,date)" + "values (" + pro_id + "," + quantity + "," + subtotal + ",1," + reg_id + ",GETDATE())";
+            int i = ob.fn_ExecuteNonQuery(s);
+            if(i == 1)
+            {
+                Label8.Text = "Added to Cart";
+            }
+        }
+
+        protected void Button5_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("User-Home.aspx");
+        }
+
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Cart.aspx");
         }
     }
 

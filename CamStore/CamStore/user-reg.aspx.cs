@@ -17,6 +17,7 @@ namespace CamStore
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            Label1.Text = "Button clicked!";
             string sel = "select max(Reg_id) from login";
             string maxreg = ob.fn_ExeScalar(sel);
             int regid = 0;
@@ -39,7 +40,7 @@ namespace CamStore
                 if (i == 1 && j == 1)
                 {
                     Label1.Text = "Succesfully Registerd";
-                    Response.Redirect("User_Home.aspx");
+                    Response.Redirect("User-Home.aspx");
 
                 }
             }

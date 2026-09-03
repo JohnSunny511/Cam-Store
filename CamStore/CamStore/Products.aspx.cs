@@ -32,7 +32,7 @@ namespace CamStore
         protected void ImageButton1_Command(object sender, CommandEventArgs e)
         {
             int id = Convert.ToInt32(e.CommandArgument);
-            Session["pro"] = id;
+            Session["pro_id"] = id;
             Response.Redirect("ProductDetails.aspx");
         }
     }

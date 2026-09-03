@@ -41,6 +41,7 @@
                             <ItemTemplate>
                                 <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("product_image") %>' />
                             </ItemTemplate>
+                            <ControlStyle Height="100px" Width="100px" />
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>

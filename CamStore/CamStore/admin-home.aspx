@@ -42,11 +42,11 @@
         <tr>
             <td class="auto-style2">&nbsp;</td>
             <td class="auto-style4">
-                <asp:ImageButton ID="ImageButton1" runat="server" Height="109px" ImageUrl="~/photos/add category.png" Width="112px" PostBackUrl="~/Add_Category.aspx" />
+                <asp:ImageButton ID="ImageButton1" runat="server" Height="109px" ImageUrl="~/photos/add category.png" Width="112px" PostBackUrl="~/Add_Category.aspx" OnClick="ImageButton1_Click" />
             </td>
             <td class="auto-style7">&nbsp;</td>
             <td>
-                <asp:ImageButton ID="ImageButton3" runat="server" CssClass="auto-style6" Height="111px" ImageUrl="~/photos/add product.png" Width="109px" PostBackUrl="~/Add_Product.aspx" />
+                <asp:ImageButton ID="ImageButton3" runat="server" CssClass="auto-style6" Height="111px" ImageUrl="~/photos/add product.png" Width="109px" PostBackUrl="~/Add_Product.aspx" OnClick="ImageButton3_Click" />
             </td>
             <td>&nbsp;</td>
         </tr>
@@ -60,11 +60,11 @@
         <tr>
             <td class="auto-style2">&nbsp;</td>
             <td class="auto-style4">
-                <asp:ImageButton ID="ImageButton2" runat="server" Height="102px" ImageUrl="~/photos/edit category.png" Width="112px" PostBackUrl="~/admin_edit_category.aspx" />
+                <asp:ImageButton ID="ImageButton2" runat="server" Height="102px" ImageUrl="~/photos/edit category.png" Width="112px" PostBackUrl="~/admin_edit_category.aspx" OnClick="ImageButton2_Click" />
             </td>
             <td class="auto-style7">&nbsp;</td>
             <td>
-                <asp:ImageButton ID="ImageButton4" runat="server" Height="100px" ImageUrl="~/photos/edit pro.png" Width="106px" PostBackUrl="~/admin_edit_product.aspx" />
+                <asp:ImageButton ID="ImageButton4" runat="server" Height="100px" ImageUrl="~/photos/edit pro.png" Width="106px" PostBackUrl="~/admin_edit_product.aspx" OnClick="ImageButton4_Click" />
             </td>
             <td>&nbsp;</td>
         </tr>

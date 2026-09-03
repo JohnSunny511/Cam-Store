@@ -27,8 +27,10 @@
             <td>&nbsp;</td>
             <td>&nbsp;</td>
             <td>
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="cart_id" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting1" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
                     <Columns>
+                        <asp:CommandField ShowEditButton="True" />
+                        <asp:CommandField ShowDeleteButton="True" />
                         <asp:BoundField DataField="product_name" HeaderText="Name" />
                         <asp:BoundField DataField="quantity" HeaderText="Quantity" />
                         <asp:BoundField DataField="subtotal" HeaderText="Total Amount" />
@@ -36,6 +38,9 @@
                             <ControlStyle Height="100px" Width="100px" />
                         </asp:ImageField>
                     </Columns>
+                    <EmptyDataTemplate>
+                        <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("product_image") %>' />
+                    </EmptyDataTemplate>
                 </asp:GridView>
             </td>
             <td>&nbsp;</td>
@@ -51,7 +56,9 @@
             <td>&nbsp;</td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <td>
+                <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+            </td>
             <td>&nbsp;</td>
         </tr>
     </table>

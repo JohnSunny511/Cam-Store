@@ -57,5 +57,17 @@ namespace CamStore
             return ds;
         }
 
+        public SqlDataReader fn_exereader(string sqlquery)
+        {
+            if (con.State == ConnectionState.Open)
+            {
+                con.Close();
+            }
+            cmd = new SqlCommand(sqlquery, con);
+            con.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            return dr;
+        }
+
     }
 }

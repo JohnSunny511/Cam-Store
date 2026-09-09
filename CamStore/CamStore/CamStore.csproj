@@ -95,6 +95,7 @@
     <Content Include="User-Home.aspx" />
     <Content Include="user-reg.aspx" />
     <Content Include="user-register.html" />
+    <Content Include="ViewBill.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -190,6 +191,13 @@
     </Compile>
     <Compile Include="user-reg.aspx.designer.cs">
       <DependentUpon>user-reg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewBill.aspx.cs">
+      <DependentUpon>ViewBill.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewBill.aspx.designer.cs">
+      <DependentUpon>ViewBill.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

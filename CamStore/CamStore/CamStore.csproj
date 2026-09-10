@@ -77,6 +77,7 @@
     <Content Include="Cart.aspx" />
     <Content Include="index.html" />
     <Content Include="Login.aspx" />
+    <Content Include="Payment.aspx" />
     <Content Include="photos\action.jpg" />
     <Content Include="photos\add category.png" />
     <Content Include="photos\add product.png" />
@@ -155,6 +156,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Payment.aspx.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Payment.aspx.designer.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductDetails.aspx.cs">
       <DependentUpon>ProductDetails.aspx</DependentUpon>

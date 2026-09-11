@@ -54,5 +54,12 @@ namespace CamStore
             }
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            AccBal.ServiceClient obj = new AccBal.ServiceClient();
+            int bal = obj.CheckBalance(Convert.ToInt32(TextBox3.Text));
+            Label2.Text = bal.ToString();
+        }
     }
 }

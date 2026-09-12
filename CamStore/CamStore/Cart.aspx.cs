@@ -123,16 +123,23 @@ namespace CamStore
                     Label2.Text = "Update Successful";
                 }
             }
-            string sel2 = "select sum(order_subtotal) from orderr where user_id =" + user_id + "  and order_status='order'";
+            string sel2 = "select ISNULL(sum(order_subtotal),0) from orderr where user_id =" + user_id + "  and order_status='order'";
             decimal grandTotal = Convert.ToInt32(ob.fn_ExeScalar(sel2));
-
-            string ins2 = "insert into bill values (" + user_id + "," + grandTotal + ",GETDATE())";
-            int k = ob.fn_ExecuteNonQuery(ins2);
-            if(k == 1)
+            if (grandTotal == 0)
             {
-                Label2.Text = "Inserted to Bill";
-                Response.Redirect("ViewBill.aspx");
+                Response.Write("<script>alert('Your cart is empty');</script>");
+                return;
+            }
+            else
+            {
+                string ins2 = "insert into bill values (" + user_id + "," + grandTotal + ",GETDATE())";
+                int k = ob.fn_ExecuteNonQuery(ins2);
+                if (k == 1)
+                {
+                    Label2.Text = "Inserted to Bill";
+                    Response.Redirect("ViewBill.aspx");
 
+                }
             }
         }
     }

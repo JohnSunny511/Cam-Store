@@ -15,10 +15,7 @@ namespace CamStore
         ConClass ob = new ConClass();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                bind();
-            }
+            bind();
 
         }
 

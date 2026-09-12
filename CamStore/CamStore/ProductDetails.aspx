@@ -5,8 +5,8 @@
         width: 376px;
     }
     .auto-style3 {
-        width: 338px;
-    }
+            width: 319px;
+        }
     .auto-style4 {
         width: 19%;
         height: 185px;
@@ -22,7 +22,7 @@
         height: 253px;
     }
     .auto-style8 {
-        width: 338px;
+        width: 319px;
         height: 253px;
     }
     .auto-style9 {
@@ -36,7 +36,7 @@
         height: 24px;
     }
     .auto-style12 {
-        width: 338px;
+        width: 319px;
         height: 24px;
     }
 </style>
@@ -99,7 +99,7 @@
                                     <asp:Button ID="Button1" runat="server" Font-Bold="True" OnClick="Button1_Click" Text="-" Width="30px" CausesValidation="False" />
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="TextBox1" runat="server" Width="17px">0</asp:TextBox>
+                                    <asp:TextBox ID="TextBox1" runat="server" Width="32px">0</asp:TextBox>
                                 </td>
                                 <td>
                                     <asp:Button ID="Button2" runat="server" Font-Bold="True" OnClick="Button2_Click" Text="+" Width="30px" />
@@ -108,7 +108,7 @@
                         </table>
                     </td>
                     <td>
-                        <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="TextBox1" ErrorMessage="Limit Exceeded" MaximumValue="3" MinimumValue="0"></asp:RangeValidator>
+                        <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="TextBox1" ErrorMessage="Limit Exceeded" MaximumValue="3" MinimumValue="0" Type="Integer"></asp:RangeValidator>
                     </td>
                 </tr>
             </table>

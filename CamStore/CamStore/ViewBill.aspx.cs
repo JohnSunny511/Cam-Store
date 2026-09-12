@@ -20,7 +20,7 @@ namespace CamStore
              "INNER JOIN dbo.usertb ON dbo.orderr.user_id = dbo.usertb.user_id " +
              "INNER JOIN dbo.bill ON dbo.usertb.user_id = dbo.bill.user_id " +
              "WHERE dbo.orderr.user_id = " + Session["regid"] +
-             " AND dbo.bill.bill_id = (SELECT MAX(bill_id) FROM dbo.bill WHERE user_id = " + Session["regid"] + ")";
+             "AND dbo.orderr.order_status = 'order' AND dbo.bill.bill_id = (SELECT MAX(bill_id) FROM dbo.bill WHERE user_id = " + Session["regid"] + ")";
             DataSet ds = ob.fn_Adapter_DataSet(sel);
             GridView1.DataSource = ds;
             GridView1.DataBind();
@@ -40,6 +40,12 @@ namespace CamStore
                 Label3.Text = dr["order_date"].ToString();
                 Label4.Text = dr["grand_total"].ToString();
             }
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Payment.aspx");
 
         }
     }

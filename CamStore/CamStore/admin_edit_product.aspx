@@ -25,7 +25,7 @@
             <td>&nbsp;</td>
             <td>&nbsp;</td>
             <td>
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="product_id" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="product_id" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" Width="1061px">
                     <Columns>
                         <asp:CommandField ShowEditButton="True" />
                         <asp:BoundField DataField="product_name" HeaderText="Name" />

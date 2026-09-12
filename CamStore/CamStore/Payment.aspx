@@ -124,8 +124,12 @@
                         <tr>
                             <td>&nbsp;</td>
                             <td class="auto-style2">&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
+                            <td>
+                                <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
+                            </td>
+                            <td>
+                                <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
+                            </td>
                         </tr>
                     </table>
                 </asp:Panel>
@@ -224,7 +228,9 @@
         <tr>
             <td class="auto-style1">&nbsp;</td>
             <td class="auto-style6">&nbsp;</td>
-            <td class="auto-style8">&nbsp;</td>
+            <td class="auto-style8">
+                                <asp:Label ID="Label6" runat="server" Text="Label"></asp:Label>
+                            </td>
             <td class="auto-style7">&nbsp;</td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>

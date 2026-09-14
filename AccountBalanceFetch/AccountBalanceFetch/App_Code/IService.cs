@@ -14,6 +14,11 @@ public interface IService
 
 	int CheckBalance(int accno);
 
+
+	[OperationContract]
+
+	int UpdateBalance(int accno, int bal);
+
 	[OperationContract]
 	string GetData(int value);
 

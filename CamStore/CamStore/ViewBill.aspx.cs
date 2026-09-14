@@ -39,6 +39,7 @@ namespace CamStore
                 Label2.Text = dr["phone"].ToString();
                 Label3.Text = dr["order_date"].ToString();
                 Label4.Text = dr["grand_total"].ToString();
+                Session["gtotal"] = dr["grand_total"].ToString();
             }
 
         }

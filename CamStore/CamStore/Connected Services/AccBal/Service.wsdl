@@ -13,6 +13,12 @@
   <wsdl:message name="IService_CheckBalance_OutputMessage">
     <wsdl:part name="parameters" element="tns:CheckBalanceResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_UpdateBalance_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBalance" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateBalance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBalanceResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_GetData_InputMessage">
     <wsdl:part name="parameters" element="tns:GetData" />
   </wsdl:message>
@@ -30,6 +36,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService/CheckBalance" message="tns:IService_CheckBalance_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/CheckBalanceResponse" message="tns:IService_CheckBalance_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="UpdateBalance">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UpdateBalance" message="tns:IService_UpdateBalance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/UpdateBalanceResponse" message="tns:IService_UpdateBalance_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetData" message="tns:IService_GetData_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/GetDataResponse" message="tns:IService_GetData_OutputMessage" />
@@ -43,6 +53,15 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="CheckBalance">
       <soap:operation soapAction="http://tempuri.org/IService/CheckBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBalance">
+      <soap:operation soapAction="http://tempuri.org/IService/UpdateBalance" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

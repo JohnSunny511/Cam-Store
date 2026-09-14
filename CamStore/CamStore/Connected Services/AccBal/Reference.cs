@@ -84,6 +84,12 @@ namespace CamStore.AccBal {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/CheckBalance", ReplyAction="http://tempuri.org/IService/CheckBalanceResponse")]
         System.Threading.Tasks.Task<int> CheckBalanceAsync(int accno);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateBalance", ReplyAction="http://tempuri.org/IService/UpdateBalanceResponse")]
+        int UpdateBalance(int accno, int bal);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateBalance", ReplyAction="http://tempuri.org/IService/UpdateBalanceResponse")]
+        System.Threading.Tasks.Task<int> UpdateBalanceAsync(int accno, int bal);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetData", ReplyAction="http://tempuri.org/IService/GetDataResponse")]
         string GetData(int value);
         
@@ -130,6 +136,14 @@ namespace CamStore.AccBal {
         
         public System.Threading.Tasks.Task<int> CheckBalanceAsync(int accno) {
             return base.Channel.CheckBalanceAsync(accno);
+        }
+        
+        public int UpdateBalance(int accno, int bal) {
+            return base.Channel.UpdateBalance(accno, bal);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdateBalanceAsync(int accno, int bal) {
+            return base.Channel.UpdateBalanceAsync(accno, bal);
         }
         
         public string GetData(int value) {

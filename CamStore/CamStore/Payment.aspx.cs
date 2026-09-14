@@ -62,35 +62,51 @@ namespace CamStore
             AccBal.ServiceClient obj = new AccBal.ServiceClient();
             int bal = obj.CheckBalance(Convert.ToInt32(TextBox3.Text));
             Label2.Text = bal.ToString();
-            string s = "select product_id from orderr where user_id =" + userid + " and order_status = 'order'";
-            SqlDataReader dr = ob.fn_exereader(s);
-            List<int> pdtidlst = new List<int>();
-            while (dr.Read())
+            int gtotal = Convert.ToInt32(Session["gtotal"]);
+            if(gtotal < bal)
             {
-                pdtidlst.Add(Convert.ToInt32(dr["product_id"]));//123
-            }
-            foreach (int pid in pdtidlst)
-            {
-                string up = "update orderr set order_status = 'paid' where user_id = " + userid + " and order_status = 'order' and product_id = " + pid;
-                int i = ob.fn_ExecuteNonQuery(up);
-                if(i == 1)
+                string s = "select product_id from orderr where user_id =" + userid + " and order_status = 'order'";
+                SqlDataReader dr = ob.fn_exereader(s);
+                List<int> pdtidlst = new List<int>();
+                while (dr.Read())
                 {
-                    Label4.Text = "Order updated";
+                    pdtidlst.Add(Convert.ToInt32(dr["product_id"]));//123
+                }
+                foreach (int pid in pdtidlst)
+                {
+                    string up = "update orderr set order_status = 'paid' where user_id = " + userid + " and order_status = 'order' and product_id = " + pid;
+                    int i = ob.fn_ExecuteNonQuery(up);
+                    if (i == 1)
+                    {
+                        Label4.Text = "Order updated";
+
+                    }
+                    string sel = "select stock from product where product_id =" + pid;
+                    int stock = Convert.ToInt32(ob.fn_ExeScalar(sel));
+                    string qun = "select order_quantity from orderr where user_id =" + userid + " and order_status = 'paid' and product_id =" + pid;
+                    int quntity = Convert.ToInt32(ob.fn_ExeScalar(qun));
+                    int newStock = stock - quntity;
+                    string upd = "update product set stock =" + newStock + " where product_id = " + pid;
+                    int j = ob.fn_ExecuteNonQuery(upd);
+                    if (j == 1)
+                    {
+                        Label5.Text = "Updated the product stock";
+                    }
+                    int newbal = bal - gtotal;
+                    int k = obj.UpdateBalance(Convert.ToInt32(TextBox3.Text), newbal);
+                    if (k == 1)
+                    {
+                        Label6.Text = "Balance Updated";
+                    }
 
                 }
-                string sel = "select stock from product where product_id =" + pid;
-                int stock = Convert.ToInt32(ob.fn_ExeScalar(sel));
-                string qun = "select order_quantity from orderr where user_id =" + userid + " and order_status = 'paid' and product_id =" + pid;
-                int quntity = Convert.ToInt32(ob.fn_ExeScalar(qun));
-                int newStock = stock - quntity;
-                string upd = "update product set stock ="+newStock+ " where product_id = "+ pid;
-                int j = ob.fn_ExecuteNonQuery(upd);
-                if (j == 1)
-                {
-                    Label5.Text = "Updated the product stock";
-                }
 
             }
+            else
+            {
+                Label6.Text = "Insucfficent Balance";
+            }
+            
         }
     }
 }

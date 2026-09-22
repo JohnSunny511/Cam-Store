@@ -41,5 +41,11 @@ namespace CamStore
             Response.Redirect("ViewFeedBack.aspx");
 
         }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ManageUsers.aspx");
+
+        }
     }
 }

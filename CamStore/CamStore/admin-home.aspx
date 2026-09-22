@@ -81,7 +81,9 @@
                 <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="View Feedback" />
             </td>
             <td class="auto-style8"></td>
-            <td class="auto-style1"></td>
+            <td class="auto-style1">
+                <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="User Managment" />
+            </td>
             <td class="auto-style1">&nbsp;</td>
         </tr>
         <tr>

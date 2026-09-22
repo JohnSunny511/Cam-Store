@@ -90,6 +90,7 @@
     <Content Include="Feedback.aspx" />
     <Content Include="index.html" />
     <Content Include="Login.aspx" />
+    <Content Include="ManageUsers.aspx" />
     <Content Include="Payment.aspx" />
     <Content Include="photos\action.jpg" />
     <Content Include="photos\add category.png" />
@@ -182,6 +183,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageUsers.aspx.cs">
+      <DependentUpon>ManageUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageUsers.aspx.designer.cs">
+      <DependentUpon>ManageUsers.aspx</DependentUpon>
     </Compile>
     <Compile Include="Payment.aspx.cs">
       <DependentUpon>Payment.aspx</DependentUpon>

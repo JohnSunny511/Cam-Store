@@ -32,10 +32,22 @@ namespace CamStore
                 if (logtype == "admin")
                 {
                     Response.Redirect("admin-home.aspx");
-                }
+                }   
                 else if (logtype == "user")
                 {
-                    Response.Redirect("User-Home.aspx");
+                    int uid = Convert.ToInt32(regid);
+                    string sel = "select user_status from usertb where user_id=" + uid;
+                    string status = ob.fn_ExeScalar(sel);
+                    if(status == " active ")
+                    {
+                        Response.Redirect("User-Home.aspx");
+
+                    }
+                    else
+                    {
+                        Label1.Text = "User Inactive";
+                    }
+                    
                 }
 
 

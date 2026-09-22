@@ -87,6 +87,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Feedback.aspx" />
     <Content Include="index.html" />
     <Content Include="Login.aspx" />
     <Content Include="Payment.aspx" />
@@ -109,6 +110,7 @@
     <Content Include="user-reg.aspx" />
     <Content Include="user-register.html" />
     <Content Include="ViewBill.aspx" />
+    <Content Include="ViewFeedBack.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -167,6 +169,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Feedback.aspx.cs">
+      <DependentUpon>Feedback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Feedback.aspx.designer.cs">
+      <DependentUpon>Feedback.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -223,6 +232,13 @@
     </Compile>
     <Compile Include="ViewBill.aspx.designer.cs">
       <DependentUpon>ViewBill.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewFeedBack.aspx.cs">
+      <DependentUpon>ViewFeedBack.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewFeedBack.aspx.designer.cs">
+      <DependentUpon>ViewFeedBack.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

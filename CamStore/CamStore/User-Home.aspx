@@ -133,7 +133,9 @@
         <tr>
             <td class="auto-style9"></td>
             <td class="auto-style10"></td>
-            <td class="auto-style11"></td>
+            <td class="auto-style11">
+                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Feedback" />
+            </td>
             <td class="auto-style9"></td>
             <td class="auto-style9"></td>
         </tr>

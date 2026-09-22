@@ -35,5 +35,11 @@ namespace CamStore
         {
             Response.Redirect("admin_edit_product.aspx");
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ViewFeedBack.aspx");
+
+        }
     }
 }

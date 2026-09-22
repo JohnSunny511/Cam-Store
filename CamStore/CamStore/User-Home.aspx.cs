@@ -36,5 +36,11 @@ namespace CamStore
             Session["uid"] = id;
             Response.Redirect("Products.aspx");
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Feedback.aspx");
+
+        }
     }
 }

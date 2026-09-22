@@ -1,153 +1,163 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="Add_Product.aspx.cs" Inherits="CamStore.Add_Product" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
-        .auto-style1 {
-            height: 24px;
+        .add-product-page {
+            background-color: #f8f9fa;
+            padding: 25px 20px 20px;
         }
-        .auto-style2 {
-            width: 413px;
+
+        .product-card {
+            max-width: 650px;
+            margin: auto;
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 25px 30px;
+            box-shadow: 0 5px 16px rgba(0,0,0,0.10);
         }
-        .auto-style3 {
-            height: 24px;
-            width: 413px;
+
+        .product-title {
+            display: block;
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            color: #212529;
+            margin-bottom: 25px;
         }
-        .auto-style4 {
-            width: 275px;
+
+        .form-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 14px;
         }
-        .auto-style5 {
-            height: 24px;
-            width: 275px;
+
+        .form-label {
+            width: 150px;
+            font-weight: 600;
+            color: #212529;
         }
-        .auto-style6 {
-            width: 342px;
+
+        .form-input,
+        .form-select {
+            flex: 1;
+            width: 100%;
+            padding: 9px 11px;
+            border: 1px solid #ced4da;
+            border-radius: 7px;
+            font-size: 14px;
+            box-sizing: border-box;
         }
-        .auto-style7 {
-            height: 24px;
-            width: 342px;
+
+        .form-input:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: #212529;
+            box-shadow: 0 0 0 2px rgba(33,37,41,0.10);
+        }
+
+        .file-input {
+            flex: 1;
+            font-size: 14px;
+        }
+
+        .add-button {
+            display: block;
+            margin: 20px auto 10px;
+            padding: 9px 30px;
+            background-color: #198754;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .add-button:hover {
+            background-color: #157347;
+        }
+
+        .message {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            color: #198754;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            .product-card {
+                padding: 20px;
+            }
+
+            .form-row {
+                display: block;
+            }
+
+            .form-label {
+                display: block;
+                width: 100%;
+                margin-bottom: 6px;
+            }
         }
     </style>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <table class="w-100">
-        <tr>
-            <td>&nbsp;</td>
-            <td class="auto-style2">&nbsp;</td>
-            <td class="auto-style6">
-                <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="35pt" Text="Add Product"></asp:Label>
-            </td>
-            <td class="auto-style4">&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td class="auto-style2">&nbsp;</td>
-            <td class="auto-style6">&nbsp;</td>
-            <td class="auto-style4">&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td class="auto-style2">&nbsp;</td>
-            <td class="auto-style6">Select Category</td>
-            <td class="auto-style4">
-                <asp:DropDownList ID="DropDownList1" runat="server">
+    <div class="add-product-page">
+        <div class="product-card">
+
+            <asp:Label ID="Label1" runat="server"
+                CssClass="product-title"
+                Text="Add Product">
+            </asp:Label>
+
+            <div class="form-row">
+                <span class="form-label">Select Category</span>
+                <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-select">
                 </asp:DropDownList>
-            </td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td class="auto-style2">&nbsp;</td>
-            <td class="auto-style6">Name</td>
-            <td class="auto-style4">
-                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-            </td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td class="auto-style2">&nbsp;</td>
-            <td class="auto-style6">Description</td>
-            <td class="auto-style4">
-                <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-            </td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td class="auto-style2">&nbsp;</td>
-            <td class="auto-style6">Price</td>
-            <td class="auto-style4">
-                <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
-            </td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td class="auto-style2">&nbsp;</td>
-            <td class="auto-style6">Stock</td>
-            <td class="auto-style4">
-                <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
-            </td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td class="auto-style2">&nbsp;</td>
-            <td class="auto-style6">Offer</td>
-            <td class="auto-style4">
-                <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
-            </td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td class="auto-style2">&nbsp;</td>
-            <td class="auto-style6">Image</td>
-            <td class="auto-style4">
-                <asp:FileUpload ID="FileUpload1" runat="server" />
-            </td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style1"></td>
-            <td class="auto-style3"></td>
-            <td class="auto-style7">&nbsp;</td>
-            <td class="auto-style5">
-                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Add" />
-            </td>
-            <td class="auto-style1"></td>
-            <td class="auto-style1"></td>
-            <td class="auto-style1"></td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td class="auto-style2">&nbsp;</td>
-            <td class="auto-style6">&nbsp;</td>
-            <td class="auto-style4">
-                <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
-            </td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-    </table>
+            </div>
+
+            <div class="form-row">
+                <span class="form-label">Name</span>
+                <asp:TextBox ID="TextBox1" runat="server" CssClass="form-input"></asp:TextBox>
+            </div>
+
+            <div class="form-row">
+                <span class="form-label">Description</span>
+                <asp:TextBox ID="TextBox2" runat="server" CssClass="form-input"></asp:TextBox>
+            </div>
+
+            <div class="form-row">
+                <span class="form-label">Price</span>
+                <asp:TextBox ID="TextBox3" runat="server" CssClass="form-input"></asp:TextBox>
+            </div>
+
+            <div class="form-row">
+                <span class="form-label">Stock</span>
+                <asp:TextBox ID="TextBox4" runat="server" CssClass="form-input"></asp:TextBox>
+            </div>
+
+            <div class="form-row">
+                <span class="form-label">Offer</span>
+                <asp:TextBox ID="TextBox5" runat="server" CssClass="form-input"></asp:TextBox>
+            </div>
+
+            <div class="form-row">
+                <span class="form-label">Image</span>
+                <asp:FileUpload ID="FileUpload1" runat="server" CssClass="file-input" />
+            </div>
+
+            <asp:Button ID="Button1" runat="server"
+                CssClass="add-button"
+                OnClick="Button1_Click"
+                Text="Add" />
+
+            <asp:Label ID="Label2" runat="server"
+                CssClass="message"
+                Text="Label">
+            </asp:Label>
+
+        </div>
+    </div>
 </asp:Content>

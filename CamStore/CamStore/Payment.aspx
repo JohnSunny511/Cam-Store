@@ -1,255 +1,461 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Payment.aspx.cs" Inherits="CamStore.Payment" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master"
+    AutoEventWireup="true"
+    CodeBehind="Payment.aspx.cs"
+    Inherits="CamStore.Payment" %>
+
+
+<asp:Content ID="Content1"
+    ContentPlaceHolderID="head"
+    runat="server">
+
     <style type="text/css">
-        .auto-style1 {
-            width: 40px;
+
+        /* ==============================
+           PAYMENT PAGE
+           ============================== */
+
+        .payment-page {
+            background-color: #f8f9fa;
+            padding: 15px 20px 25px 20px;
         }
-        .auto-style2 {
-            width: 277px;
+
+
+        /* ==============================
+           PAGE TITLE
+           ============================== */
+
+        .payment-title {
+            text-align: center;
+            margin-bottom: 20px;
         }
-        .auto-style3 {
-            height: 24px;
+
+        .payment-title h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #212529;
+            margin-bottom: 7px;
         }
-        .auto-style4 {
-            width: 277px;
-            height: 24px;
+
+        .title-line {
+            width: 60px;
+            height: 4px;
+            background-color: #212529;
+            margin: auto;
+            border-radius: 5px;
         }
-        .auto-style5 {
-            width: 99%
+
+
+        /* ==============================
+           PAYMENT CARDS
+           ============================== */
+
+        .payment-container {
+            max-width: 1000px;
+            margin: auto;
+            display: flex;
+            gap: 25px;
+            align-items: flex-start;
         }
-        .auto-style6 {
-            width: 565px;
+
+        .payment-card {
+            flex: 1;
+            background-color: white;
+            border-radius: 14px;
+            padding: 22px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.10);
         }
-        .auto-style7 {
-            width: 71px;
+
+
+        /* ==============================
+           CARD HEADINGS
+           ============================== */
+
+        .card-title {
+            text-align: center;
+            margin-bottom: 20px;
         }
-        .auto-style8 {
-            width: 84px;
+
+        .card-title h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #212529;
+            margin: 0;
         }
-        .auto-style10 {
-            width: 250px;
+
+        .card-title-line {
+            width: 45px;
+            height: 3px;
+            background-color: #212529;
+            margin: 7px auto 0 auto;
+            border-radius: 5px;
         }
-        .auto-style11 {
-            width: 68px;
+
+
+        /* ==============================
+           FORM ROWS
+           ============================== */
+
+        .form-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            gap: 15px;
         }
-        .auto-style12 {
-            width: 40px;
-            height: 24px;
+
+        .form-label {
+            width: 125px;
+            flex-shrink: 0;
+            color: #495057;
+            font-size: 14px;
+            font-weight: 600;
         }
-        .auto-style13 {
-            width: 565px;
-            height: 24px;
+
+
+        /* ==============================
+           TEXTBOXES
+           ============================== */
+
+        .payment-input {
+            width: 100%;
+            max-width: 220px;
+            height: 36px;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            padding: 5px 9px;
+            font-size: 14px;
+            box-sizing: border-box;
         }
-        .auto-style14 {
-            width: 84px;
-            height: 24px;
+
+        .payment-input:focus {
+            outline: none;
+            border-color: #6c757d;
+            box-shadow: 0 0 0 2px rgba(108,117,125,0.15);
         }
-        .auto-style15 {
-            width: 71px;
-            height: 24px;
+
+
+        /* ==============================
+           DROPDOWN
+           ============================== */
+
+        .account-type {
+            width: 100%;
+            max-width: 220px;
+            height: 36px;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            padding: 5px;
+            font-size: 14px;
+            background-color: white;
         }
+
+
+        /* ==============================
+           BUTTONS
+           ============================== */
+
+        .pay-button,
+        .insert-button {
+            border: none;
+            border-radius: 7px;
+            padding: 9px 25px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .pay-button {
+            background-color: #198754;
+            color: white;
+        }
+
+        .pay-button:hover {
+            background-color: #157347;
+            transform: translateY(-1px);
+        }
+
+        .insert-button {
+            background-color: #212529;
+            color: white;
+        }
+
+        .insert-button:hover {
+            background-color: #000000;
+            transform: translateY(-1px);
+        }
+
+
+        /* ==============================
+           STATUS MESSAGES
+           ============================== */
+
+        .status-message {
+            display: block;
+            margin-top: 10px;
+            color: #dc3545;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .bill-message {
+            display: block;
+            text-align: center;
+            max-width: 1000px;
+            margin: 12px auto 0 auto;
+            color: #198754;
+            font-size: 14px;
+        }
+
+
+        /* ==============================
+           RESPONSIVE
+           ============================== */
+
+        @media (max-width: 768px) {
+
+            .payment-container {
+                flex-direction: column;
+            }
+
+            .payment-card {
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .form-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+
+            .form-label {
+                width: 100%;
+            }
+
+            .payment-input,
+            .account-type {
+                max-width: 100%;
+            }
+
+        }
+
     </style>
+
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <table class="w-100">
-        <tr>
-            <td class="auto-style1">&nbsp;</td>
-            <td class="auto-style6">&nbsp;</td>
-            <td class="auto-style8">&nbsp;</td>
-            <td class="auto-style7">&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style1">&nbsp;</td>
-            <td class="auto-style6">&nbsp;</td>
-            <td class="auto-style8">&nbsp;</td>
-            <td class="auto-style7">&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style1">&nbsp;</td>
-            <td class="auto-style6">
-                <asp:Panel ID="Panel1" runat="server">
-                    <table class="auto-style5">
-                        <tr>
-                            <td>&nbsp;</td>
-                            <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; BILL&nbsp;&nbsp; PAYMENT&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td>&nbsp;</td>
-                            <td class="auto-style2">&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td>&nbsp;</td>
-                            <td class="auto-style2">Account Number:</td>
-                            <td>
-                                <asp:TextBox ID="TextBox3" runat="server" OnTextChanged="TextBox3_TextChanged"></asp:TextBox>
-                            </td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td>&nbsp;</td>
-                            <td class="auto-style2">&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td>&nbsp;</td>
-                            <td class="auto-style2">&nbsp;</td>
-                            <td>
-                                <asp:Button ID="Button1" runat="server" Text="Pay" OnClick="Button1_Click" />
-                            </td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="auto-style3"></td>
-                            <td class="auto-style4"></td>
-                            <td class="auto-style3"></td>
-                            <td class="auto-style3"></td>
-                        </tr>
-                        <tr>
-                            <td class="auto-style3"></td>
-                            <td class="auto-style4"></td>
-                            <td class="auto-style3">
-                                <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
-                            </td>
-                            <td class="auto-style3"></td>
-                        </tr>
-                        <tr>
-                            <td>&nbsp;</td>
-                            <td class="auto-style2">&nbsp;</td>
-                            <td>
-                                <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
-                            </td>
-                            <td>
-                                <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
-                            </td>
-                        </tr>
-                    </table>
-                </asp:Panel>
-            </td>
-            <td class="auto-style8">&nbsp;</td>
-            <td class="auto-style7">&nbsp;</td>
-            <td>
-                <asp:Panel ID="Panel2" runat="server">
-                    <table class="w-100">
-                        <tr>
-                            <td class="auto-style11">&nbsp;</td>
-                            <td class="auto-style10">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ACCOUNT </td>
-                            <td>REGISTRATION</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="auto-style11">&nbsp;</td>
-                            <td class="auto-style10">&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="auto-style11">&nbsp;</td>
-                            <td class="auto-style10">Account Number:</td>
-                            <td>
-                                <asp:TextBox ID="TextBox1" runat="server" AutoPostBack="True" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
-                            </td>
-                            <td>
-                                <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="auto-style11">&nbsp;</td>
-                            <td class="auto-style10">&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="auto-style11">&nbsp;</td>
-                            <td class="auto-style10">Account Type:</td>
-                            <td>
-                                <asp:DropDownList ID="DropDownList1" runat="server">
-                                    <asp:ListItem>Savings</asp:ListItem>
-                                    <asp:ListItem>Current</asp:ListItem>
-                                </asp:DropDownList>
-                            </td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="auto-style11">&nbsp;</td>
-                            <td class="auto-style10">&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="auto-style11">&nbsp;</td>
-                            <td class="auto-style10">Amount:</td>
-                            <td>
-                                <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-                            </td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="auto-style11">&nbsp;</td>
-                            <td class="auto-style10">&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="auto-style11">&nbsp;</td>
-                            <td class="auto-style10">&nbsp;</td>
-                            <td>
-                                <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Insert" />
-                            </td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="auto-style11">&nbsp;</td>
-                            <td class="auto-style10">&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="auto-style11">&nbsp;</td>
-                            <td class="auto-style10">&nbsp;</td>
-                            <td>
-                                <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-                            </td>
-                            <td>&nbsp;</td>
-                        </tr>
-                    </table>
-                </asp:Panel>
-            </td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style1">&nbsp;</td>
-            <td class="auto-style6">&nbsp;</td>
-            <td class="auto-style8">
-                                <asp:Label ID="Label6" runat="server" Text="Label"></asp:Label>
-                            </td>
-            <td class="auto-style7">&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style12"></td>
-            <td class="auto-style13"></td>
-            <td class="auto-style14"></td>
-            <td class="auto-style15"></td>
-            <td class="auto-style3"></td>
-            <td class="auto-style3"></td>
-        </tr>
-        <tr>
-            <td class="auto-style1">&nbsp;</td>
-            <td class="auto-style6">&nbsp;</td>
-            <td class="auto-style8">&nbsp;</td>
-            <td class="auto-style7">&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-    </table>
+
+
+<asp:Content ID="Content2"
+    ContentPlaceHolderID="ContentPlaceHolder1"
+    runat="server">
+
+    <div class="payment-page">
+
+
+        <!-- PAGE TITLE -->
+
+        <div class="payment-title">
+
+            <h1>Payment</h1>
+
+            <div class="title-line"></div>
+
+        </div>
+
+
+        <!-- PAYMENT CARDS -->
+
+        <div class="payment-container">
+
+
+            <!-- =================================
+                 BILL PAYMENT
+                 ================================= -->
+
+            <asp:Panel ID="Panel1"
+                runat="server"
+                CssClass="payment-card">
+
+                <div class="card-title">
+
+                    <h2>Bill Payment</h2>
+
+                    <div class="card-title-line"></div>
+
+                </div>
+
+
+                <!-- Account Number -->
+
+                <div class="form-row">
+
+                    <span class="form-label">
+                        Account Number
+                    </span>
+
+                    <asp:TextBox ID="TextBox3"
+                        runat="server"
+                        CssClass="payment-input"
+                        OnTextChanged="TextBox3_TextChanged">
+                    </asp:TextBox>
+
+                </div>
+
+
+                <!-- Pay -->
+
+                <div class="form-row">
+
+                    <span class="form-label"></span>
+
+                    <asp:Button ID="Button1"
+                        runat="server"
+                        CssClass="pay-button"
+                        Text="Pay"
+                        OnClick="Button1_Click" />
+
+                </div>
+
+
+                <!-- Status -->
+
+                <asp:Label ID="Label2"
+                    runat="server"
+                    CssClass="status-message"
+                    Text="Label">
+                </asp:Label>
+
+
+                <!-- Additional information -->
+
+                <asp:Label ID="Label4"
+                    runat="server"
+                    CssClass="status-message"
+                    Text="Label">
+                </asp:Label>
+
+                <asp:Label ID="Label5"
+                    runat="server"
+                    CssClass="status-message"
+                    Text="Label">
+                </asp:Label>
+
+            </asp:Panel>
+
+
+            <!-- =================================
+                 ACCOUNT REGISTRATION
+                 ================================= -->
+
+            <asp:Panel ID="Panel2"
+                runat="server"
+                CssClass="payment-card">
+
+                <div class="card-title">
+
+                    <h2>Account Registration</h2>
+
+                    <div class="card-title-line"></div>
+
+                </div>
+
+
+                <!-- Account Number -->
+
+                <div class="form-row">
+
+                    <span class="form-label">
+                        Account Number
+                    </span>
+
+                    <asp:TextBox ID="TextBox1"
+                        runat="server"
+                        CssClass="payment-input"
+                        AutoPostBack="True"
+                        OnTextChanged="TextBox1_TextChanged">
+                    </asp:TextBox>
+
+                    <asp:Label ID="Label3"
+                        runat="server"
+                        CssClass="status-message"
+                        Text="Label">
+                    </asp:Label>
+
+                </div>
+
+
+                <!-- Account Type -->
+
+                <div class="form-row">
+
+                    <span class="form-label">
+                        Account Type
+                    </span>
+
+                    <asp:DropDownList ID="DropDownList1"
+                        runat="server"
+                        CssClass="account-type">
+
+                        <asp:ListItem>Savings</asp:ListItem>
+                        <asp:ListItem>Current</asp:ListItem>
+
+                    </asp:DropDownList>
+
+                </div>
+
+
+                <!-- Amount -->
+
+                <div class="form-row">
+
+                    <span class="form-label">
+                        Amount
+                    </span>
+
+                    <asp:TextBox ID="TextBox2"
+                        runat="server"
+                        CssClass="payment-input">
+                    </asp:TextBox>
+
+                </div>
+
+
+                <!-- Insert -->
+
+                <div class="form-row">
+
+                    <span class="form-label"></span>
+
+                    <asp:Button ID="Button2"
+                        runat="server"
+                        CssClass="insert-button"
+                        OnClick="Button2_Click"
+                        Text="Insert" />
+
+                </div>
+
+
+                <!-- Status -->
+
+                <asp:Label ID="Label1"
+                    runat="server"
+                    CssClass="status-message"
+                    Text="Label">
+                </asp:Label>
+
+            </asp:Panel>
+
+        </div>
+
+
+        <!-- Bottom Message -->
+
+        <asp:Label ID="Label6"
+            runat="server"
+            CssClass="bill-message"
+            Text="Label">
+        </asp:Label>
+
+
+    </div>
+
 </asp:Content>

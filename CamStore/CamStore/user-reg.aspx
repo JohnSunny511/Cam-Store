@@ -1,184 +1,239 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="user-reg.aspx.cs" Inherits="CamStore.user_reg" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
-    .auto-style1 {
-        height: 24px;
+    .register-page {
+        background-color: #f8f9fa;
+        padding: 10px 15px;
     }
-    .auto-style2 {
-        width: 504px;
+
+    .register-card {
+        max-width: 600px;
+        margin: auto;
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 15px 25px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.10);
     }
-    .auto-style3 {
-        height: 24px;
-        width: 504px;
+
+    .register-title {
+        display: block;
+        text-align: center;
+        font-size: 26px;
+        font-weight: 700;
+        color: #212529;
+        margin-bottom: 12px;
     }
-    .auto-style4 {
-        width: 180px;
+
+    .form-row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 7px;
     }
-    .auto-style5 {
-        height: 24px;
-        width: 180px;
+
+    .form-label {
+        width: 145px;
+        font-weight: 600;
+        color: #212529;
+        font-size: 13px;
     }
-        .auto-style6 {
-            height: 24px;
-            width: 283px;
+
+    .form-control {
+        flex: 1;
+        width: 100%;
+        height: 32px;
+        padding: 5px 9px;
+        border: 1px solid #ced4da;
+        border-radius: 6px;
+        font-size: 13px;
+        box-sizing: border-box;
+    }
+
+    .form-control:focus {
+        outline: none;
+        border-color: #212529;
+        box-shadow: 0 0 0 2px rgba(33,37,41,0.08);
+    }
+
+    .validator {
+        display: block;
+        margin-left: 145px;
+        margin-top: -5px;
+        margin-bottom: 3px;
+        color: #dc3545;
+        font-size: 10px;
+    }
+
+    .register-button {
+        display: block;
+        margin: 10px auto 5px;
+        padding: 7px 25px;
+        background-color: #198754;
+        color: #ffffff;
+        border: none;
+        border-radius: 6px;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .register-button:hover {
+        background-color: #157347;
+    }
+
+    .register-message {
+        display: block;
+        text-align: center;
+        margin-top: 5px;
+        color: #198754;
+        font-size: 12px;
+    }
+
+    @media (max-width: 600px) {
+        .register-card {
+            padding: 15px;
         }
-        .auto-style7 {
-            width: 283px;
+
+        .form-row {
+            display: block;
+            margin-bottom: 8px;
         }
-        .auto-style8 {
-            width: 504px;
-            height: 30px;
+
+        .form-label {
+            display: block;
+            width: 100%;
+            margin-bottom: 3px;
         }
-        .auto-style9 {
-            width: 180px;
-            height: 30px;
+
+        .validator {
+            margin-left: 0;
+            margin-bottom: 3px;
         }
-        .auto-style10 {
-            width: 283px;
-            height: 30px;
-        }
-        .auto-style11 {
-            height: 30px;
-        }
-    </style>
+    }
+</style>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <table class="w-100">
-    <tr>
-        <td class="auto-style3"></td>
-        <td class="auto-style5"></td>
-        <td class="auto-style6"></td>
-        <td class="auto-style1"></td>
-    </tr>
-    <tr>
-        <td class="auto-style2">&nbsp;</td>
-        <td class="auto-style4">&nbsp;</td>
-        <td class="auto-style7">&nbsp;</td>
-        <td>&nbsp;</td>
-    </tr>
-    <tr>
-        <td class="auto-style2">&nbsp;</td>
-        <td class="auto-style4">Full Name</td>
-        <td class="auto-style7">
-            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-        </td>
-        <td>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox2" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
-        </td>
-    </tr>
-    <tr>
-        <td class="auto-style2">&nbsp;</td>
-        <td class="auto-style4">Email</td>
-        <td class="auto-style7">
-            <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
-        </td>
-        <td>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TextBox3" ErrorMessage="RegularExpressionValidator" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
-        </td>
-    </tr>
-    <tr>
-        <td class="auto-style8"></td>
-        <td class="auto-style9">Phone</td>
-        <td class="auto-style10">
-            <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
-        </td>
-        <td class="auto-style11">
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="TextBox4" ErrorMessage="RegularExpressionValidator" ValidationExpression="^[0-9]{10}$"></asp:RegularExpressionValidator>
-        </td>
-    </tr>
-    <tr>
-        <td class="auto-style2">&nbsp;</td>
-        <td class="auto-style4">Age</td>
-        <td class="auto-style7">
-            <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
-        </td>
-        <td>
-            <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="TextBox5" ErrorMessage="RangeValidator" MaximumValue="60" MinimumValue="20"></asp:RangeValidator>
-        </td>
-    </tr>
-    <tr>
-        <td class="auto-style2">&nbsp;</td>
-        <td class="auto-style4">Address</td>
-        <td class="auto-style7">
-            <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
-        </td>
-        <td>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox6" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
-        </td>
-    </tr>
-    <tr>
-        <td class="auto-style2">&nbsp;</td>
-        <td class="auto-style4">Username</td>
-        <td class="auto-style7">
-            <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
-        </td>
-        <td>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBox7" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
-        </td>
-    </tr>
-    <tr>
-        <td class="auto-style3"></td>
-        <td class="auto-style5">Password</td>
-        <td class="auto-style6">
-            <asp:TextBox ID="TextBox8" runat="server"></asp:TextBox>
-        </td>
-        <td class="auto-style1">
-            <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="TextBox9" ControlToValidate="TextBox8" ErrorMessage="CompareValidator"></asp:CompareValidator>
-        </td>
-    </tr>
-    <tr>
-        <td class="auto-style2">&nbsp;</td>
-        <td class="auto-style4">Confirm Password</td>
-        <td class="auto-style7">
-            <asp:TextBox ID="TextBox9" runat="server"></asp:TextBox>
-        </td>
-        <td>
-            <asp:CompareValidator ID="CompareValidator2" runat="server" ControlToCompare="TextBox8" ControlToValidate="TextBox9" ErrorMessage="CompareValidator"></asp:CompareValidator>
-        </td>
-    </tr>
-    <tr>
-        <td class="auto-style2">&nbsp;</td>
-        <td class="auto-style4">Pincode</td>
-        <td class="auto-style7">
-            <asp:TextBox ID="TextBox10" runat="server"></asp:TextBox>
-        </td>
-        <td>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TextBox10" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
-        </td>
-    </tr>
-    <tr>
-        <td class="auto-style2">&nbsp;</td>
-        <td class="auto-style4">&nbsp;</td>
-        <td class="auto-style7">
-            <asp:Button ID="Button1" runat="server" Text="Register" OnClick="Button1_Click" />
-        </td>
-        <td>&nbsp;</td>
-    </tr>
-    <tr>
-        <td class="auto-style2">&nbsp;</td>
-        <td class="auto-style4">&nbsp;</td>
-        <td class="auto-style7">
-            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-        </td>
-        <td>&nbsp;</td>
-    </tr>
-    <tr>
-        <td class="auto-style2">&nbsp;</td>
-        <td class="auto-style4">&nbsp;</td>
-        <td class="auto-style7">&nbsp;</td>
-        <td>&nbsp;</td>
-    </tr>
-    <tr>
-        <td class="auto-style2">&nbsp;</td>
-        <td class="auto-style4">&nbsp;</td>
-        <td class="auto-style7">&nbsp;</td>
-        <td>&nbsp;</td>
-    </tr>
-    <tr>
-        <td class="auto-style2">&nbsp;</td>
-        <td class="auto-style4">&nbsp;</td>
-        <td class="auto-style7">&nbsp;</td>
-        <td>&nbsp;</td>
-    </tr>
-</table>
+    <div class="register-page">
+        <div class="register-card">
+
+            <asp:Label ID="Label2" runat="server"
+                CssClass="register-title"
+                Text="Registration">
+            </asp:Label>
+
+            <div class="form-row">
+                <span class="form-label">Full Name</span>
+                <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control"></asp:TextBox>
+            </div>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
+                CssClass="validator"
+                ControlToValidate="TextBox2"
+                ErrorMessage="RequiredFieldValidator">
+            </asp:RequiredFieldValidator>
+
+            <div class="form-row">
+                <span class="form-label">Email</span>
+                <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control"></asp:TextBox>
+            </div>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server"
+                CssClass="validator"
+                ControlToValidate="TextBox3"
+                ErrorMessage="RegularExpressionValidator"
+                ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">
+            </asp:RegularExpressionValidator>
+
+            <div class="form-row">
+                <span class="form-label">Phone</span>
+                <asp:TextBox ID="TextBox4" runat="server" CssClass="form-control"></asp:TextBox>
+            </div>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server"
+                CssClass="validator"
+                ControlToValidate="TextBox4"
+                ErrorMessage="RegularExpressionValidator"
+                ValidationExpression="^[0-9]{10}$">
+            </asp:RegularExpressionValidator>
+
+            <div class="form-row">
+                <span class="form-label">Age</span>
+                <asp:TextBox ID="TextBox5" runat="server" CssClass="form-control"></asp:TextBox>
+            </div>
+            <asp:RangeValidator ID="RangeValidator1" runat="server"
+                CssClass="validator"
+                ControlToValidate="TextBox5"
+                ErrorMessage="RangeValidator"
+                MaximumValue="60"
+                MinimumValue="20">
+            </asp:RangeValidator>
+
+            <div class="form-row">
+                <span class="form-label">Address</span>
+                <asp:TextBox ID="TextBox6" runat="server" CssClass="form-control"></asp:TextBox>
+            </div>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
+                CssClass="validator"
+                ControlToValidate="TextBox6"
+                ErrorMessage="RequiredFieldValidator">
+            </asp:RequiredFieldValidator>
+
+            <div class="form-row">
+                <span class="form-label">Username</span>
+                <asp:TextBox ID="TextBox7" runat="server" CssClass="form-control"></asp:TextBox>
+            </div>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server"
+                CssClass="validator"
+                ControlToValidate="TextBox7"
+                ErrorMessage="RequiredFieldValidator">
+            </asp:RequiredFieldValidator>
+
+            <div class="form-row">
+                <span class="form-label">Password</span>
+                <asp:TextBox ID="TextBox8" runat="server"
+                    CssClass="form-control"
+                    TextMode="Password">
+                </asp:TextBox>
+            </div>
+            <asp:CompareValidator ID="CompareValidator1" runat="server"
+                CssClass="validator"
+                ControlToCompare="TextBox9"
+                ControlToValidate="TextBox8"
+                ErrorMessage="CompareValidator">
+            </asp:CompareValidator>
+
+            <div class="form-row">
+                <span class="form-label">Confirm Password</span>
+                <asp:TextBox ID="TextBox9" runat="server"
+                    CssClass="form-control"
+                    TextMode="Password">
+                </asp:TextBox>
+            </div>
+            <asp:CompareValidator ID="CompareValidator2" runat="server"
+                CssClass="validator"
+                ControlToCompare="TextBox8"
+                ControlToValidate="TextBox9"
+                ErrorMessage="CompareValidator">
+            </asp:CompareValidator>
+
+            <div class="form-row">
+                <span class="form-label">Pincode</span>
+                <asp:TextBox ID="TextBox10" runat="server" CssClass="form-control"></asp:TextBox>
+            </div>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server"
+                CssClass="validator"
+                ControlToValidate="TextBox10"
+                ErrorMessage="RequiredFieldValidator">
+            </asp:RequiredFieldValidator>
+
+            <asp:Button ID="Button1" runat="server"
+                CssClass="register-button"
+                Text="Register"
+                OnClick="Button1_Click" />
+
+            <asp:Label ID="Label1" runat="server"
+                CssClass="register-message"
+                Text="Label">
+            </asp:Label>
+
+        </div>
+    </div>
 </asp:Content>

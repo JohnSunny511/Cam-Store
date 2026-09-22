@@ -1,97 +1,201 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="admin-home.aspx.cs" Inherits="CamStore.admin_home" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
     <style type="text/css">
-        .auto-style1 {
-            height: 24px;
+
+        /* ==============================
+           ADMIN HOME PAGE
+           ============================== */
+
+        .admin-home {
+            background-color: #f8f9fa;
+            padding: 25px 20px 20px 20px;
         }
-        .auto-style2 {
-            width: 540px;
+
+
+        /* ==============================
+           ADMIN ACTIONS
+           ============================== */
+
+        .admin-actions {
+            max-width: 800px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
         }
-        .auto-style3 {
-            height: 24px;
-            width: 540px;
+
+
+        /* ==============================
+           ACTION CARD
+           ============================== */
+
+        .admin-card {
+            background-color: white;
+            border-radius: 14px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 16px rgba(0,0,0,0.10);
+            transition: all 0.3s ease;
         }
-        .auto-style4 {
-            width: 291px;
+
+        .admin-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 24px rgba(0,0,0,0.15);
         }
-        .auto-style5 {
-            height: 24px;
-            width: 291px;
+
+
+        /* ==============================
+           ACTION ICON
+           ============================== */
+
+        .admin-icon {
+            display: block;
+            margin: auto;
+            object-fit: contain;
         }
-        .auto-style6 {
-            margin-left: 0px;
+
+
+        /* ==============================
+           BOTTOM BUTTONS
+           ============================== */
+
+        .admin-button {
+            width: 100%;
+            border: none;
+            border-radius: 7px;
+            padding: 10px 15px;
+            background-color: #212529;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
         }
-        .auto-style7 {
-            width: 51px;
+
+        .admin-button:hover {
+            background-color: #000000;
+            transform: translateY(-1px);
         }
-        .auto-style8 {
-            height: 24px;
-            width: 51px;
+
+
+        /* ==============================
+           RESPONSIVE
+           ============================== */
+
+        @media (max-width: 600px) {
+
+            .admin-actions {
+                grid-template-columns: 1fr;
+            }
+
         }
+
     </style>
+
 </asp:Content>
+
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <table class="w-100">
-        <tr>
-            <td class="auto-style2">&nbsp;</td>
-            <td class="auto-style4">&nbsp;</td>
-            <td class="auto-style7">&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style2">&nbsp;</td>
-            <td class="auto-style4">
-                <asp:ImageButton ID="ImageButton1" runat="server" Height="109px" ImageUrl="~/photos/add category.png" Width="112px" PostBackUrl="~/Add_Category.aspx" OnClick="ImageButton1_Click" />
-            </td>
-            <td class="auto-style7">&nbsp;</td>
-            <td>
-                <asp:ImageButton ID="ImageButton3" runat="server" CssClass="auto-style6" Height="111px" ImageUrl="~/photos/add product.png" Width="109px" PostBackUrl="~/Add_Product.aspx" OnClick="ImageButton3_Click" />
-            </td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style2">&nbsp;</td>
-            <td class="auto-style4">&nbsp;</td>
-            <td class="auto-style7">&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style2">&nbsp;</td>
-            <td class="auto-style4">
-                <asp:ImageButton ID="ImageButton2" runat="server" Height="102px" ImageUrl="~/photos/edit category.png" Width="112px" PostBackUrl="~/admin_edit_category.aspx" OnClick="ImageButton2_Click" />
-            </td>
-            <td class="auto-style7">&nbsp;</td>
-            <td>
-                <asp:ImageButton ID="ImageButton4" runat="server" Height="100px" ImageUrl="~/photos/edit pro.png" Width="106px" PostBackUrl="~/admin_edit_product.aspx" OnClick="ImageButton4_Click" />
-            </td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style2">&nbsp;</td>
-            <td class="auto-style4">&nbsp;</td>
-            <td class="auto-style7">&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style3"></td>
-            <td class="auto-style5">
-                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="View Feedback" />
-            </td>
-            <td class="auto-style8"></td>
-            <td class="auto-style1">
-                <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="User Managment" />
-            </td>
-            <td class="auto-style1">&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style2">&nbsp;</td>
-            <td class="auto-style4">&nbsp;</td>
-            <td class="auto-style7">&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-    </table>
+
+    <div class="admin-home">
+
+        <div class="admin-actions">
+
+
+            <!-- Add Category -->
+
+            <div class="admin-card">
+
+                <asp:ImageButton ID="ImageButton1"
+                    runat="server"
+                    CssClass="admin-icon"
+                    Height="109px"
+                    Width="112px"
+                    ImageUrl="~/photos/add category.png"
+                    PostBackUrl="~/Add_Category.aspx"
+                    OnClick="ImageButton1_Click" />
+
+            </div>
+
+
+            <!-- Add Product -->
+
+            <div class="admin-card">
+
+                <asp:ImageButton ID="ImageButton3"
+                    runat="server"
+                    CssClass="admin-icon"
+                    Height="111px"
+                    Width="109px"
+                    ImageUrl="~/photos/add product.png"
+                    PostBackUrl="~/Add_Product.aspx"
+                    OnClick="ImageButton3_Click" />
+
+            </div>
+
+
+            <!-- Edit Category -->
+
+            <div class="admin-card">
+
+                <asp:ImageButton ID="ImageButton2"
+                    runat="server"
+                    CssClass="admin-icon"
+                    Height="102px"
+                    Width="112px"
+                    ImageUrl="~/photos/edit category.png"
+                    PostBackUrl="~/admin_edit_category.aspx"
+                    OnClick="ImageButton2_Click" />
+
+            </div>
+
+
+            <!-- Edit Product -->
+
+            <div class="admin-card">
+
+                <asp:ImageButton ID="ImageButton4"
+                    runat="server"
+                    CssClass="admin-icon"
+                    Height="100px"
+                    Width="106px"
+                    ImageUrl="~/photos/edit pro.png"
+                    PostBackUrl="~/admin_edit_product.aspx"
+                    OnClick="ImageButton4_Click" />
+
+            </div>
+
+
+            <!-- View Feedback -->
+
+            <div class="admin-card">
+
+                <asp:Button ID="Button1"
+                    runat="server"
+                    CssClass="admin-button"
+                    OnClick="Button1_Click"
+                    Text="View Feedback" />
+
+            </div>
+
+
+            <!-- User Management -->
+
+            <div class="admin-card">
+
+                <asp:Button ID="Button2"
+                    runat="server"
+                    CssClass="admin-button"
+                    OnClick="Button2_Click"
+                    Text="User Managment" />
+
+            </div>
+
+
+        </div>
+
+    </div>
+
 </asp:Content>

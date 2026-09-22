@@ -72,8 +72,15 @@ namespace CamStore
             grid_bind();
             Panel1.Visible = false;
 
-            
-
+            string sel = "select username,email from usertb where user_id = " + sid;
+            SqlDataReader dr = ob.fn_exereader(sel);
+            string toname ="", toemail= "";
+            while (dr.Read())
+            {
+                toname = dr["username"].ToString();
+                toemail = dr["email"].ToString();
+            }
+            //SendEmail2("CamStore", "johngenai777@gmail.com", "tokz gmhx uuyt tsme", toname, toemail, TextBox7.Text, TextBox8.Text);
 
 
         }

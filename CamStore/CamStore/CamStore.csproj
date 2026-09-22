@@ -80,6 +80,7 @@
     <Content Include="Connected Services\AccBal\CamStore.AccBal.CompositeType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Admin.Master" />
     <None Include="Connected Services\AccBal\Service.disco" />
     <None Include="Connected Services\AccBal\configuration91.svcinfo" />
     <None Include="Connected Services\AccBal\configuration.svcinfo" />
@@ -142,6 +143,13 @@
     </Compile>
     <Compile Include="admin-reg.aspx.designer.cs">
       <DependentUpon>admin-reg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
     <Compile Include="admin_edit_category.aspx.cs">
       <DependentUpon>admin_edit_category.aspx</DependentUpon>

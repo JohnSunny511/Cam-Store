@@ -25,6 +25,7 @@ namespace CamStore
                 string str1 = "select reg_id from login where username='" + TextBox1.Text + "' and password='" + TextBox2.Text + "'";
                 string regid = ob.fn_ExeScalar(str1);
                 Session["regid"] = regid;
+                Session["username"] = TextBox1.Text;
 
 
                 string str2 = "select log_type from login where username='" + TextBox1.Text + "' and password='" + TextBox2.Text + "'";

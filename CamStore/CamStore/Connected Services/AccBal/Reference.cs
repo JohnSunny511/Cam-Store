@@ -79,16 +79,16 @@ namespace CamStore.AccBal {
     public interface IService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/CheckBalance", ReplyAction="http://tempuri.org/IService/CheckBalanceResponse")]
-        int CheckBalance(int accno);
+        int CheckBalance(long accno);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/CheckBalance", ReplyAction="http://tempuri.org/IService/CheckBalanceResponse")]
-        System.Threading.Tasks.Task<int> CheckBalanceAsync(int accno);
+        System.Threading.Tasks.Task<int> CheckBalanceAsync(long accno);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateBalance", ReplyAction="http://tempuri.org/IService/UpdateBalanceResponse")]
-        int UpdateBalance(int accno, int bal);
+        int UpdateBalance(long accno, int bal);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateBalance", ReplyAction="http://tempuri.org/IService/UpdateBalanceResponse")]
-        System.Threading.Tasks.Task<int> UpdateBalanceAsync(int accno, int bal);
+        System.Threading.Tasks.Task<int> UpdateBalanceAsync(long accno, int bal);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetData", ReplyAction="http://tempuri.org/IService/GetDataResponse")]
         string GetData(int value);
@@ -130,19 +130,19 @@ namespace CamStore.AccBal {
                 base(binding, remoteAddress) {
         }
         
-        public int CheckBalance(int accno) {
+        public int CheckBalance(long accno) {
             return base.Channel.CheckBalance(accno);
         }
         
-        public System.Threading.Tasks.Task<int> CheckBalanceAsync(int accno) {
+        public System.Threading.Tasks.Task<int> CheckBalanceAsync(long accno) {
             return base.Channel.CheckBalanceAsync(accno);
         }
         
-        public int UpdateBalance(int accno, int bal) {
+        public int UpdateBalance(long accno, int bal) {
             return base.Channel.UpdateBalance(accno, bal);
         }
         
-        public System.Threading.Tasks.Task<int> UpdateBalanceAsync(int accno, int bal) {
+        public System.Threading.Tasks.Task<int> UpdateBalanceAsync(long accno, int bal) {
             return base.Channel.UpdateBalanceAsync(accno, bal);
         }
         

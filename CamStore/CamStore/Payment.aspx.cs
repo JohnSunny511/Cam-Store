@@ -49,10 +49,6 @@ namespace CamStore
             string s = "select count(acc_id) from account where acc_num = " + TextBox1.Text;
             string c = ob.fn_ExeScalar(s);
             int cnt = Convert.ToInt32(c);
-            if (cnt == 1)
-            {
-                Label3.Text = "Account already exists";
-            }
 
         }
 
@@ -60,10 +56,10 @@ namespace CamStore
         {
             int userid = Convert.ToInt32(Session["regid"]);
             AccBal.ServiceClient obj = new AccBal.ServiceClient();
-            int bal = obj.CheckBalance(Convert.ToInt32(TextBox3.Text));
+            long bal = obj.CheckBalance(Convert.ToInt64(TextBox3.Text));
             Label2.Text = bal.ToString();
-            int gtotal = Convert.ToInt32(Session["gtotal"]);
-            if(gtotal < bal)
+            long gtotal = Convert.ToInt32(Session["gtotal"]);
+            if (gtotal < bal)
             {
                 string s = "select product_id from orderr where user_id =" + userid + " and order_status = 'order'";
                 SqlDataReader dr = ob.fn_exereader(s);
@@ -92,8 +88,8 @@ namespace CamStore
                     {
                         Label5.Text = "Updated the product stock";
                     }
-                    int newbal = bal - gtotal;
-                    int k = obj.UpdateBalance(Convert.ToInt32(TextBox3.Text), newbal);
+                    long newbal = bal - gtotal;
+                    int k = obj.UpdateBalance(Convert.ToInt64(TextBox3.Text), Convert.ToInt32(newbal));
                     if (k == 1)
                     {
                         Label6.Text = "Balance Updated";
@@ -104,9 +100,14 @@ namespace CamStore
             }
             else
             {
-                Label6.Text = "Insucfficent Balance";
+                ClientScript.RegisterStartupScript(
+        this.GetType(),
+        "InsufficientBalance",
+        "showInsufficientBalance();",
+        true
+    );
             }
-            
+
         }
     }
 }

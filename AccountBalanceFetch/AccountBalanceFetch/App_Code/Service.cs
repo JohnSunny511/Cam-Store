@@ -14,7 +14,7 @@ public class Service : IService
 
 	SqlConnection con = new SqlConnection(@"server=LAPTOP-QK9QR22V\SQLEXPRESS;database=CamStore;integrated security = true");
 
-	public int CheckBalance(int accno)
+	public int CheckBalance(long accno)
     {
 		string sel = "select bal_amount from account where acc_num = "+accno+"";
 		SqlCommand cmd = new SqlCommand(sel,con);
@@ -28,7 +28,7 @@ public class Service : IService
 		return bal;
     }
 
-	public int UpdateBalance(int accno,int bal)
+	public int UpdateBalance(long accno,int bal)
     {
 		string upd = "update account set bal_amount = "+ bal+ "  where acc_num = " + accno;
 		SqlCommand cmd = new SqlCommand(upd, con);

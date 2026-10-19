@@ -11,7 +11,25 @@ namespace CamStore
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                if (Session["username"] != null)
+                {
+                    lblUsername.Text = Session["username"].ToString();
+                }
+                else
+                {
+                    lblUsername.Text = "User";
+                }
+            }
+        }
 
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Session.Abandon();
+
+            Response.Redirect("login.aspx");
         }
     }
 }

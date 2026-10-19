@@ -77,10 +77,10 @@
     <Content Include="admin_edit_category.aspx" />
     <Content Include="admin_edit_product.aspx" />
     <Content Include="Cart.aspx" />
+    <Content Include="Admin.Master" />
     <Content Include="Connected Services\AccBal\CamStore.AccBal.CompositeType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Admin.Master" />
     <None Include="Connected Services\AccBal\Service.disco" />
     <None Include="Connected Services\AccBal\configuration91.svcinfo" />
     <None Include="Connected Services\AccBal\configuration.svcinfo" />

@@ -347,6 +347,7 @@
                         Price
                     </span>
 
+                    <span class="product-price">₹ </span>
                     <asp:Label ID="Label6"
                         runat="server"
                         CssClass="product-price"

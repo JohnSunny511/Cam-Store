@@ -77,6 +77,15 @@
             color: #dc3545;
             font-size: 14px;
         }
+        .register-link {
+        font-size: 14px;
+        color: #0d6efd;
+        text-decoration: none;
+    }
+
+    .register-link:hover {
+        text-decoration: underline;
+    }
     </style>
 </asp:Content>
 
@@ -108,6 +117,12 @@
                 CssClass="login-button"
                 Text="Login"
                 OnClick="Button1_Click" />
+
+            <asp:HyperLink ID="HyperLink1" runat="server"
+                NavigateUrl="user-reg.aspx"
+                CssClass="register-link">
+                New user? Register here
+            </asp:HyperLink>
 
             <asp:Label ID="Label1" runat="server"
                 CssClass="login-message"

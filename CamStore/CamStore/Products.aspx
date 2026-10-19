@@ -196,7 +196,7 @@
             RepeatDirection="Horizontal"
             CellPadding="0"
             CellSpacing="0"
-            CssClass="product-list">
+            CssClass="product-list" RepeatColumns="4">
 
             <ItemTemplate>
 
@@ -226,7 +226,7 @@
                     <asp:Label ID="Label3"
                         runat="server"
                         CssClass="product-price"
-                        Text='<%# Eval("price") %>'>
+                        Text='<%# "₹ " + Eval("price", "{0:N0}") %>'>
                     </asp:Label>
 
 

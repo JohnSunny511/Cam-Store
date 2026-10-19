@@ -4,7 +4,7 @@
   <xs:element name="CheckBalance">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="accno" type="xs:int" />
+        <xs:element minOccurs="0" name="accno" type="xs:long" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -18,7 +18,7 @@
   <xs:element name="UpdateBalance">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="accno" type="xs:int" />
+        <xs:element minOccurs="0" name="accno" type="xs:long" />
         <xs:element minOccurs="0" name="bal" type="xs:int" />
       </xs:sequence>
     </xs:complexType>

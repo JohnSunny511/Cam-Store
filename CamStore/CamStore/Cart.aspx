@@ -319,8 +319,7 @@
                 <asp:Label ID="Label2"
                     runat="server"
                     CssClass="total-label"
-                    Text="Label">
-                </asp:Label>
+                    Text="Label" Visible="False"></asp:Label>
 
             </div>
 

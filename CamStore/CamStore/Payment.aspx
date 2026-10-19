@@ -3,7 +3,6 @@
     CodeBehind="Payment.aspx.cs"
     Inherits="CamStore.Payment" %>
 
-
 <asp:Content ID="Content1"
     ContentPlaceHolderID="head"
     runat="server">
@@ -186,6 +185,18 @@
 
 
         /* ==============================
+           VALIDATION MESSAGES
+           ============================== */
+
+        .validation-message {
+            display: block;
+            margin-top: 5px;
+            color: #dc3545;
+            font-size: 13px;
+        }
+
+
+        /* ==============================
            STATUS MESSAGES
            ============================== */
 
@@ -236,10 +247,86 @@
             .account-type {
                 max-width: 100%;
             }
-
         }
 
     </style>
+
+
+    <script type="text/javascript">
+
+        function validateAccount() {
+
+            var account = document.getElementById('<%= TextBox1.ClientID %>').value.trim();
+            var amount = document.getElementById('<%= TextBox2.ClientID %>').value.trim();
+
+            // Account number validation
+            if (account == "") {
+                document.getElementById("accountNumberError").innerHTML =
+                    "Account number is required";
+                return false;
+            }
+
+            var accountNum = /^[0-9]{12}$/;
+
+            if (!account.match(accountNum)) {
+                document.getElementById("accountNumberError").innerHTML =
+                    "Invalid account number - 12 digits required";
+                return false;
+            }
+
+            document.getElementById("accountNumberError").innerHTML = "";
+
+
+            // Amount validation
+            if (amount == "") {
+                document.getElementById("amountError").innerHTML =
+                    "Amount is required";
+                return false;
+            }
+
+            var amountNum = /^[0-9]+$/;
+
+            if (!amount.match(amountNum)) {
+                document.getElementById("amountError").innerHTML =
+                    "Invalid amount format";
+                return false;
+            }
+
+            document.getElementById("amountError").innerHTML = "";
+
+            return true;
+        }
+
+
+        function validatePayment() {
+
+            var account = document.getElementById('<%= TextBox3.ClientID %>').value.trim();
+
+            // Payment account number validation
+            if (account == "") {
+                document.getElementById("paymentAccountError").innerHTML =
+                    "Account number is required";
+                return false;
+            }
+
+            var accountNum = /^[0-9]{12}$/;
+
+            if (!account.match(accountNum)) {
+                document.getElementById("paymentAccountError").innerHTML =
+                    "Invalid account number - 12 digits required";
+                return false;
+            }
+
+            document.getElementById("paymentAccountError").innerHTML = "";
+
+            return true;
+        }
+
+        function showInsufficientBalance() {
+            alert("Insufficient Balance");
+        }
+
+    </script>
 
 </asp:Content>
 
@@ -249,7 +336,6 @@
     runat="server">
 
     <div class="payment-page">
-
 
         <!-- PAGE TITLE -->
 
@@ -294,11 +380,14 @@
 
                     <asp:TextBox ID="TextBox3"
                         runat="server"
-                        CssClass="payment-input"
-                        OnTextChanged="TextBox3_TextChanged">
+                        CssClass="payment-input">
                     </asp:TextBox>
 
                 </div>
+
+                <span id="paymentAccountError"
+                    class="validation-message">
+                </span>
 
 
                 <!-- Pay -->
@@ -311,32 +400,33 @@
                         runat="server"
                         CssClass="pay-button"
                         Text="Pay"
-                        OnClick="Button1_Click" />
+                        OnClick="Button1_Click"
+                        OnClientClick="return validatePayment();" />
 
                 </div>
 
 
-                <!-- Status -->
+                <!-- Balance -->
 
                 <asp:Label ID="Label2"
                     runat="server"
-                    CssClass="status-message"
-                    Text="Label">
+                    CssClass="status-message">
                 </asp:Label>
 
 
-                <!-- Additional information -->
+                <!-- Order Status -->
 
                 <asp:Label ID="Label4"
                     runat="server"
-                    CssClass="status-message"
-                    Text="Label">
+                    CssClass="status-message">
                 </asp:Label>
+
+
+                <!-- Stock Status -->
 
                 <asp:Label ID="Label5"
                     runat="server"
-                    CssClass="status-message"
-                    Text="Label">
+                    CssClass="status-message">
                 </asp:Label>
 
             </asp:Panel>
@@ -369,18 +459,14 @@
 
                     <asp:TextBox ID="TextBox1"
                         runat="server"
-                        CssClass="payment-input"
-                        AutoPostBack="True"
-                        OnTextChanged="TextBox1_TextChanged">
+                        CssClass="payment-input">
                     </asp:TextBox>
 
-                    <asp:Label ID="Label3"
-                        runat="server"
-                        CssClass="status-message"
-                        Text="Label">
-                    </asp:Label>
-
                 </div>
+
+                <span id="accountNumberError"
+                    class="validation-message">
+                </span>
 
 
                 <!-- Account Type -->
@@ -418,6 +504,10 @@
 
                 </div>
 
+                <span id="amountError"
+                    class="validation-message">
+                </span>
+
 
                 <!-- Insert -->
 
@@ -429,17 +519,17 @@
                         runat="server"
                         CssClass="insert-button"
                         OnClick="Button2_Click"
-                        Text="Insert" />
+                        Text="Insert"
+                        OnClientClick="return validateAccount();" />
 
                 </div>
 
 
-                <!-- Status -->
+                <!-- Account Status -->
 
                 <asp:Label ID="Label1"
                     runat="server"
-                    CssClass="status-message"
-                    Text="Label">
+                    CssClass="status-message">
                 </asp:Label>
 
             </asp:Panel>
@@ -451,10 +541,8 @@
 
         <asp:Label ID="Label6"
             runat="server"
-            CssClass="bill-message"
-            Text="Label">
+            CssClass="bill-message">
         </asp:Label>
-
 
     </div>
 

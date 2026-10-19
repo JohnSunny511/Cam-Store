@@ -12,12 +12,12 @@ public interface IService
 {
 	[OperationContract]
 
-	int CheckBalance(int accno);
+	int CheckBalance(long accno);
 
 
 	[OperationContract]
 
-	int UpdateBalance(int accno, int bal);
+	int UpdateBalance(long accno, int bal);
 
 	[OperationContract]
 	string GetData(int value);

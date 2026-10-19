@@ -2,115 +2,115 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
-    .register-page {
-        background-color: #f8f9fa;
-        padding: 10px 15px;
-    }
+        .register-page {
+            background-color: #f8f9fa;
+            padding: 10px 15px;
+        }
 
-    .register-card {
-        max-width: 600px;
-        margin: auto;
-        background: #ffffff;
-        border-radius: 12px;
-        padding: 15px 25px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.10);
-    }
-
-    .register-title {
-        display: block;
-        text-align: center;
-        font-size: 26px;
-        font-weight: 700;
-        color: #212529;
-        margin-bottom: 12px;
-    }
-
-    .form-row {
-        display: flex;
-        align-items: center;
-        margin-bottom: 7px;
-    }
-
-    .form-label {
-        width: 145px;
-        font-weight: 600;
-        color: #212529;
-        font-size: 13px;
-    }
-
-    .form-control {
-        flex: 1;
-        width: 100%;
-        height: 32px;
-        padding: 5px 9px;
-        border: 1px solid #ced4da;
-        border-radius: 6px;
-        font-size: 13px;
-        box-sizing: border-box;
-    }
-
-    .form-control:focus {
-        outline: none;
-        border-color: #212529;
-        box-shadow: 0 0 0 2px rgba(33,37,41,0.08);
-    }
-
-    .validator {
-        display: block;
-        margin-left: 145px;
-        margin-top: -5px;
-        margin-bottom: 3px;
-        color: #dc3545;
-        font-size: 10px;
-    }
-
-    .register-button {
-        display: block;
-        margin: 10px auto 5px;
-        padding: 7px 25px;
-        background-color: #198754;
-        color: #ffffff;
-        border: none;
-        border-radius: 6px;
-        font-size: 13px;
-        font-weight: 600;
-        cursor: pointer;
-    }
-
-    .register-button:hover {
-        background-color: #157347;
-    }
-
-    .register-message {
-        display: block;
-        text-align: center;
-        margin-top: 5px;
-        color: #198754;
-        font-size: 12px;
-    }
-
-    @media (max-width: 600px) {
         .register-card {
-            padding: 15px;
+            max-width: 600px;
+            margin: auto;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 15px 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+        }
+
+        .register-title {
+            display: block;
+            text-align: center;
+            font-size: 26px;
+            font-weight: 700;
+            color: #212529;
+            margin-bottom: 12px;
         }
 
         .form-row {
-            display: block;
-            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 7px;
         }
 
         .form-label {
-            display: block;
-            width: 100%;
-            margin-bottom: 3px;
+            width: 145px;
+            font-weight: 600;
+            color: #212529;
+            font-size: 13px;
         }
 
-        .validator {
-            margin-left: 0;
-            margin-bottom: 3px;
+        .form-control {
+            flex: 1;
+            width: 100%;
+            height: 32px;
+            padding: 5px 9px;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            font-size: 13px;
+            box-sizing: border-box;
         }
-    }
-</style>
+
+            .form-control:focus {
+                outline: none;
+                border-color: #212529;
+                box-shadow: 0 0 0 2px rgba(33,37,41,0.08);
+            }
+
+        .validator {
+            display: block;
+            margin-left: 145px;
+            margin-top: -5px;
+            margin-bottom: 3px;
+            color: #dc3545;
+            font-size: 10px;
+        }
+
+        .register-button {
+            display: block;
+            margin: 10px auto 5px;
+            padding: 7px 25px;
+            background-color: #198754;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+            .register-button:hover {
+                background-color: #157347;
+            }
+
+        .register-message {
+            display: block;
+            text-align: center;
+            margin-top: 5px;
+            color: #198754;
+            font-size: 12px;
+        }
+
+        @media (max-width: 600px) {
+            .register-card {
+                padding: 15px;
+            }
+
+            .form-row {
+                display: block;
+                margin-bottom: 8px;
+            }
+
+            .form-label {
+                display: block;
+                width: 100%;
+                margin-bottom: 3px;
+            }
+
+            .validator {
+                margin-left: 0;
+                margin-bottom: 3px;
+            }
+        }
+    </style>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -228,6 +228,14 @@
                 CssClass="register-button"
                 Text="Register"
                 OnClick="Button1_Click" />
+
+            <div class="login-link">
+                Already a user?
+    <asp:HyperLink ID="HyperLink1" runat="server"
+        NavigateUrl="login.aspx">
+        Login here
+    </asp:HyperLink>
+            </div>
 
             <asp:Label ID="Label1" runat="server"
                 CssClass="register-message"

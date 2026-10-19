@@ -263,6 +263,3 @@ Login checks the `log_type` field from the `login` table:
 
 ---
 
-## 📝 License
-
-This project is built for educational / portfolio purposes.
